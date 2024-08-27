@@ -116,3 +116,11 @@ body,
 .nav-menu-current:hover {
   color: #b5c99a;
 }
+
+/* FOOTER */
+
+#footer-container {
+  height: 10rem;
+  width: 100%;
+  background-color: #718355;
+}

@@ -15,10 +15,12 @@
   justify-content: space-around;
   align-items: center;
   background-color: #cfe1b9;
+  /* background-image: url("https://media.tenor.com/_W3l9GlCz7gAAAAi/world-earth.gif");
+  background-size: cover; */
 }
 
 #landing-left {
-  width: 55vw;
+  width: 45vw;
 }
 
 #landing-left h1 {
@@ -32,6 +34,20 @@
   font-size: 40px;
   font-weight: 400;
   margin-top: -2rem;
+}
+
+#landing-right {
+  width: 35vw;
+}
+
+#landing-right p {
+  font-family: var(--font-open-sans);
+  font-size: 24px;
+  white-space: normal;
+  width: 80%;
+  display: block;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 #landing-container-bottom {
@@ -54,6 +70,11 @@
 
 .landing-box p {
   font-family: var(--font-open-sans);
+  white-space: normal;
+  width: 50%;
+  display: block;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 #landing-box-3 {

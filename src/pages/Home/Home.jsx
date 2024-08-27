@@ -3,7 +3,10 @@ import React from "react";
 // Router Link
 import { Link } from "react-router-dom";
 
+// CSS & Font Awesome
 import "./Home.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClock, faGlasses, faPen } from "@fortawesome/free-solid-svg-icons";
 
 function Home() {
   return (
@@ -17,25 +20,25 @@ function Home() {
           </Link>
         </div>
         <div id="landing-right">
-          <ul>
-            <li>Information om hur man använder sidan</li>
-            <li>Quiz för att utmana dig själv och andra på hemsidan</li>
-            <li>Se din historik och utveckla din kunskap</li>
-          </ul>
+          <p>
+            Med Flagit blir det lättar att lära sig mer om världens olika
+            flaggor. Du lär dig särskilja dem på ett roligt sätt, så att du
+            aldrig har tråkigt!
+          </p>
         </div>
       </div>
       <div id="landing-container-bottom">
         <div className="landing-box">
           <h2>01</h2>
-          <p>Säljande punkt</p>
+          <p>Perfekt för alla åldrar.</p>
         </div>
         <div className="landing-box">
           <h2>02</h2>
-          <p>Säljande punkt</p>
+          <p>Lär dig flaggor snabbt och enkelt.</p>
         </div>
         <div id="landing-box-3" className="landing-box">
           <h2>03</h2>
-          <p>Säljande punkt</p>
+          <p>Utveckla ditt geografiska sinne på ett roligt sätt!</p>
         </div>
       </div>
     </>
