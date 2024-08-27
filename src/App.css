@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+:root {
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-open-sans: "Open Sans", sans-serif;
+}
+
+body {
+  background-color: #e9f5db;
+  color: #182310;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+html,
+body,
+#root {
+  height: 100vh;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* BUTTONS */
+.primary-btn {
+  font-family: var(--font-open-sans);
+  font-size: 24px;
+  height: 55px;
+  width: 188px;
+  border: none;
+  background-color: #b5c99a;
+  color: #182310;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.primary-btn:hover {
+  background-color: #87986a;
+  color: #e9f5db;
+}
+
+/* NAVBAR */
+#nav-container {
+  display: flex;
+  width: 100vw;
+  height: 13.4%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #87986a;
+}
+
+#nav-left {
+  display: flex;
+  align-items: center;
+  width: 17vw;
+  margin-left: 1%;
+  text-decoration: none;
+}
+
+.logo-image {
+  height: 46px;
+  width: auto;
+  margin: 0.5rem;
+}
+
+.logo-name {
+  font-family: var(--font-montserrat);
+  font-size: 32px;
+  font-weight: 800;
+  color: #e9f5db;
+}
+
+#nav-middle {
+  display: flex;
+  justify-content: space-around;
+  width: 40vw;
+}
+
+#nav-right {
+  display: flex;
+  justify-content: space-around;
+  width: 17vw;
+  margin-right: 1.5%;
+}
+
+.nav-menu-size {
+  font-family: var(--font-montserrat);
+  font-size: 24px;
+  font-weight: 650;
+  text-decoration: none;
+  color: #e9f5db;
+  transition: all 0.3s ease;
+}
+
+.nav-menu-size:hover {
+  color: #182310;
+}
+
+.nav-menu-current {
+  font-family: var(--font-montserrat);
+  font-size: 24px;
+  font-weight: 650;
+  text-decoration: none;
+  color: #182310;
+  transition: all 0.3s ease;
+}
+
+.nav-menu-current:hover {
+  color: #b5c99a;
+}
+
+/* FOOTER */
+#footer-container {
+  height: 10rem;
+  width: 100%;
+  background-color: #718355;
+}
