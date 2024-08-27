@@ -28,11 +28,30 @@ body,
   align-items: center;
 }
 
+/* BUTTONS */
+.primary-btn {
+  font-family: var(--font-open-sans);
+  font-size: 24px;
+  height: 55px;
+  width: 188px;
+  border: none;
+  background-color: #b5c99a;
+  color: #182310;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.primary-btn:hover {
+  background-color: #87986a;
+  color: #e9f5db;
+}
+
 /* NAVBAR */
 #nav-container {
   display: flex;
   width: 100vw;
-  height: 7.625rem;
+  height: 13.4%;
   justify-content: space-between;
   align-items: center;
   background-color: #87986a;
