@@ -1,0 +1,56 @@
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #87986A;
+    width: 400px;
+    height: 400px;
+}
+  
+.loginBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 90%; 
+    max-width: 400px; 
+    padding: 20px;
+    box-sizing: border-box; 
+  }
+  
+  .loginBox label,
+  .loginBox input {
+    display: block;
+    width: 100%; 
+    margin-bottom: 10px; 
+  }
+  
+  .loginBox input {
+    padding: 8px;
+    box-sizing: border-box; 
+  }
+
+  .h1Container {
+    display: flex;
+    justify-content: center; 
+    width: 100%;
+  }
+
+  .buttonContainer {
+    display: flex;
+    justify-content: center; 
+    width: 100%;
+  }
+  
+  .loginBox button {
+    width: 50%;
+    padding: 10px;
+    margin-top: 10px; 
+  }
+  
+  
+  @media (max-width: 600px) {
+    .loginBox {
+      width: 100%; 
+      padding: 10px;
+    }
+  }
