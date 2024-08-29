@@ -1,0 +1,20 @@
+.formInput {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.formInput label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 18px;
+  color: #333;
+}
+
+.formInput input {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
