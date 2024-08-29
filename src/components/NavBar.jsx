@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../Contexts/auth.context";
 
 // Router Link
 import { Link, useLocation } from "react-router-dom";
@@ -8,6 +9,7 @@ import flagit_logo from "@images/flagit_logo.png";
 
 function NavBar() {
   const location = useLocation();
+  const { user, signOut } = useContext(AuthContext);
 
   return (
     <>
@@ -57,26 +59,36 @@ function NavBar() {
           </Link>
         </div>
         <div id="nav-right">
-          <Link
-            className={
-              location.pathname === "/login"
-                ? "nav-menu-current"
-                : "nav-menu-size"
-            }
-            to="/login"
-          >
-            Logga in
-          </Link>
-          <Link
-            className={
-              location.pathname === "/register"
-                ? "nav-menu-current"
-                : "nav-menu-size"
-            }
-            to="/register"
-          >
-            Registrera
-          </Link>
+          <>
+            {user ? (
+              <Link className="nav-link" to="#" onClick={() => signOut()}>
+                Logga ut
+              </Link>
+            ) : (
+              <>
+                <Link
+                  className={
+                    location.pathname === "/login"
+                      ? "nav-menu-current"
+                      : "nav-menu-size"
+                  }
+                  to="/login"
+                >
+                  Logga in
+                </Link>
+                <Link
+                  className={
+                    location.pathname === "/register"
+                      ? "nav-menu-current"
+                      : "nav-menu-size"
+                  }
+                  to="/register"
+                >
+                  Registrera
+                </Link>
+              </>
+            )}
+          </>
         </div>
       </div>
     </>

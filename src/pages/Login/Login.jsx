@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AuthContext } from "../../contexts/auth.context";
+import { getCookie } from "../../utils/cookieUtils";
 
 import FormInput from "../../components/FormInput/FormInput.component";
 import FormButton from "../../components/FormButton/FormButton.component";
@@ -10,6 +12,7 @@ function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
+  const { setUser } = useContext(AuthContext);
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -58,7 +61,12 @@ function Login() {
           }
         })
         .then((data) => {
-          console.log("Login successful:", data);
+          const sessionCookie = getCookie(".AspNetCore.Identity.Application");
+          const userData = { ...data, session: sessionCookie };
+
+          setUser(userData);
+
+          localStorage.setItem("user", JSON.stringify(userData));
         })
         .catch((error) => {
           console.error("Error during login:", error);
