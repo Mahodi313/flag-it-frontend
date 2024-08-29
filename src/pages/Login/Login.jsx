@@ -68,9 +68,7 @@ function Login() {
           value={password}
           onChange={handlePasswordChange}
         />
-        <div className="buttonContainer">
-          <FormButton text="Logga in" onClick={handleLogin} type="button" />
-        </div>
+        <FormButton text="Logga in" onClick={handleLogin} type="button" />
       </div>
     </div>
   );
