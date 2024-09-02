@@ -126,6 +126,7 @@ function Register() {
           name="username"
           value={formData.username}
           onChange={handleChange}
+          id="username"
         />
         {errors.username && <p className="error">{errors.username}</p>}
         <FormInput
@@ -134,6 +135,7 @@ function Register() {
           name="email"
           value={formData.email}
           onChange={handleChange}
+          id="email"
         />
         {errors.email && <p className="error">{errors.email}</p>}
         <FormInput
@@ -142,6 +144,7 @@ function Register() {
           name="password"
           value={formData.password}
           onChange={handleChange}
+          id="password"
         />
         {errors.password && <p className="error">{errors.password}</p>}
         <FormInput
@@ -150,6 +153,7 @@ function Register() {
           name="confirmPassword"
           value={formData.confirmPassword}
           onChange={handleChange}
+          id="confirmPassword"
         />
         {errors.confirmPassword && (
           <p className="error">{errors.confirmPassword}</p>

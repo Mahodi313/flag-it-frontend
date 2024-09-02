@@ -6,7 +6,7 @@ function FormButton({ text, onClick }) {
   return (
     <>
       <div className="formbuttonContainer">
-        <button type="button" onClick={onClick}>
+        <button id="auth-btn" type="button" onClick={onClick}>
           {text}
         </button>
       </div>

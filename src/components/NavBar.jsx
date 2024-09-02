@@ -61,12 +61,17 @@ function NavBar() {
         <div id="nav-right">
           <>
             {user ? (
-              <Link className="nav-link" to="#" onClick={() => signOut()}>
+              <Link
+                className="nav-link logoutLink nav-menu-size"
+                to="#"
+                onClick={() => signOut()}
+              >
                 Logga ut
               </Link>
             ) : (
               <>
                 <Link
+                  id="loginLink"
                   className={
                     location.pathname === "/login"
                       ? "nav-menu-current"
@@ -77,6 +82,7 @@ function NavBar() {
                   Logga in
                 </Link>
                 <Link
+                  id="RegisterLink"
                   className={
                     location.pathname === "/register"
                       ? "nav-menu-current"
