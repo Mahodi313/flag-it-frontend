@@ -1,0 +1,1348 @@
+{
+  "countries": [
+    {
+      "Id": 1,
+      "Name": "Afghanistan",
+      "Continent": "Asien",
+      "Description": "Afghanistan, beläget i Centralasien, blev självständigt från Storbritannien den 19 augusti 1919. Landet har cirka 38 miljoner invånare. De officiella språken är pashto och dari.",
+      "FlagImage": "https://flagcdn.com/af.svg"
+    },
+    {
+      "Id": 2,
+      "Name": "Albanien",
+      "Continent": "Europa",
+      "Description": "Albanien, beläget i Sydöstra Europa, blev självständigt från Osmanska riket den 28 november 1912. Landet har cirka 2,9 miljoner invånare. Det officiella språket är albanska.",
+      "FlagImage": "https://flagcdn.com/al.svg"
+    },
+    {
+      "Id": 3,
+      "Name": "Algeriet",
+      "Continent": "Afrika",
+      "Description": "Algeriet, beläget i Nordafrika, blev självständigt från Frankrike den 5 juli 1962. Landet har cirka 44 miljoner invånare. Det officiella språket är arabiska.",
+      "FlagImage": "https://flagcdn.com/dz.svg"
+    },
+    {
+      "Id": 4,
+      "Name": "Andorra",
+      "Continent": "Europa",
+      "Description": "Andorra, en liten landlocked nation i Pyrenéerna mellan Frankrike och Spanien, har cirka 77 000 invånare. Det officiella språket är katalanska.",
+      "FlagImage": "https://flagcdn.com/ad.svg"
+    },
+    {
+      "Id": 5,
+      "Name": "Angola",
+      "Continent": "Afrika",
+      "Description": "Angola, beläget på västkusten av södra Afrika, blev självständigt från Portugal den 11 november 1975. Landet har cirka 32 miljoner invånare. Det officiella språket är portugisiska.",
+      "FlagImage": "https://flagcdn.com/ao.svg"
+    },
+    {
+      "Id": 6,
+      "Name": "Antigua och Barbuda",
+      "Continent": "Nordamerika",
+      "Description": "Antigua och Barbuda är en ö-nation i Karibien som blev självständigt från Storbritannien den 1 november 1981. Landet har cirka 97 000 invånare. Det officiella språket är engelska.",
+      "FlagImage": "https://flagcdn.com/ag.svg"
+    },
+    {
+      "Id": 7,
+      "Name": "Argentina",
+      "Continent": "Sydamerika",
+      "Description": "Argentina, beläget i Sydamerika, förklarade sig självständigt från Spanien den 9 juli 1816. Landet har cirka 45 miljoner invånare. Det officiella språket är spanska.",
+      "FlagImage": "https://flagcdn.com/ar.svg"
+    },
+    {
+      "Id": 8,
+      "Name": "Armenien",
+      "Continent": "Asien",
+      "Description": "Armenien, beläget i södra Kaukasus, blev självständigt från Sovjetunionen den 21 september 1991. Landet har cirka 3 miljoner invånare. Det officiella språket är armeniska.",
+      "FlagImage": "https://flagcdn.com/am.svg"
+    },
+    {
+      "Id": 9,
+      "Name": "Australien",
+      "Continent": "Oceanien",
+      "Description": "Australien, en kontinent och land i Oceanien, blev självständigt från Storbritannien den 1 januari 1901. Landet har cirka 25 miljoner invånare. Det officiella språket är engelska.",
+      "FlagImage": "https://flagcdn.com/au.svg"
+    },
+    {
+      "Id": 10,
+      "Name": "Österrike",
+      "Continent": "Europa",
+      "Description": "Österrike, beläget i Centraleuropa, har en historia av självständighet som går tillbaka till 1156. Landet har cirka 9 miljoner invånare. Det officiella språket är tyska.",
+      "FlagImage": "https://flagcdn.com/at.svg"
+    },
+    {
+      "Id": 11,
+      "Name": "Azerbajdzjan",
+      "Continent": "Asien",
+      "Description": "Azerbajdzjan, beläget i södra Kaukasus, blev självständigt från Sovjetunionen den 30 augusti 1991. Landet har cirka 10 miljoner invånare. Det officiella språket är azerbajdzjanska.",
+      "FlagImage": "https://flagcdn.com/az.svg"
+    },
+    {
+      "Id": 12,
+      "Name": "Bahamas",
+      "Continent": "Nordamerika",
+      "Description": "Bahamas, en ö-nation i Karibien, blev självständigt från Storbritannien den 10 juli 1973. Landet har cirka 400 000 invånare. Det officiella språket är engelska.",
+      "FlagImage": "https://flagcdn.com/bs.svg"
+    },
+    {
+      "Id": 13,
+      "Name": "Bahrain",
+      "Continent": "Asien",
+      "Description": "Bahrain, en ö-nation i Persiska viken, blev självständigt från Storbritannien den 15 augusti 1971. Landet har cirka 1,7 miljoner invånare. Det officiella språket är arabiska.",
+      "FlagImage": "https://flagcdn.com/bh.svg"
+    },
+    {
+      "Id": 14,
+      "Name": "Bangladesh",
+      "Continent": "Asien",
+      "Description": "Bangladesh, beläget i Sydasien, blev självständigt från Pakistan den 26 mars 1971. Landet har cirka 163 miljoner invånare. Det officiella språket är bengali.",
+      "FlagImage": "https://flagcdn.com/bd.svg"
+    },
+    {
+      "Id": 15,
+      "Name": "Barbados",
+      "Continent": "Nordamerika",
+      "Description": "Barbados, en ö-nation i Karibien, blev självständigt från Storbritannien den 30 november 1966. Landet har cirka 287 000 invånare. Det officiella språket är engelska.",
+      "FlagImage": "https://flagcdn.com/bb.svg"
+    },
+    {
+      "Id": 16,
+      "Name": "Vitryssland",
+      "Continent": "Europa",
+      "Description": "Vitryssland, beläget i Östeuropa, blev självständigt från Sovjetunionen den 25 augusti 1991. Landet har cirka 9,4 miljoner invånare. Det officiella språket är vitryska.",
+      "FlagImage": "https://flagcdn.com/by.svg"
+    },
+    {
+      "Id": 17,
+      "Name": "Belgien",
+      "Continent": "Europa",
+      "Description": "Belgien, beläget i Västeuropa, blev självständigt från Nederländerna den 4 oktober 1830. Landet har cirka 11,5 miljoner invånare. De officiella språken är nederländska, franska och tyska.",
+      "FlagImage": "https://flagcdn.com/be.svg"
+    },
+    {
+      "Id": 18,
+      "Name": "Belize",
+      "Continent": "Nordamerika",
+      "Description": "Belize, ett land i Centralamerika, blev självständigt från Storbritannien den 21 september 1981. Landet har cirka 400 000 invånare. Det officiella språket är engelska.",
+      "FlagImage": "https://flagcdn.com/bz.svg"
+    },
+    {
+      "Id": 19,
+      "Name": "Benin",
+      "Continent": "Afrika",
+      "Description": "Benin, ett västafrikanskt land, blev självständigt från Frankrike den 1 augusti 1960. Landet har cirka 12 miljoner invånare. Det officiella språket är franska.",
+      "FlagImage": "https://flagcdn.com/bj.svg"
+    },
+    {
+      "Id": 20,
+      "Name": "Bhutan",
+      "Continent": "Asien",
+      "Description": "Bhutan, ett litet kungarike i Himalaya, har aldrig varit under utländsk kontroll. Landet har cirka 770 000 invånare. Det officiella språket är dzongkha.",
+      "FlagImage": "https://flagcdn.com/bt.svg"
+    },
+    {
+      "Id": 21,
+      "Name": "Bolivia",
+      "Continent": "Sydamerika",
+      "Description": "Bolivia, beläget i Sydamerika, blev självständigt från Spanien den 6 augusti 1825. Landet har cirka 11 miljoner invånare. De officiella språken är spanska och flera inhemska språk.",
+      "FlagImage": "https://flagcdn.com/bo.svg"
+    },
+    {
+      "Id": 22,
+      "Name": "Bosnien och Hercegovina",
+      "Continent": "Europa",
+      "Description": "Bosnien och Hercegovina, beläget i Balkanregionen i Sydöstra Europa, blev självständigt från Jugoslavien den 1 mars 1992. Landet har cirka 3,5 miljoner invånare. De officiella språken är bosniska, kroatiska och serbiska.",
+      "FlagImage": "https://flagcdn.com/ba.svg"
+    },
+    {
+      "Id": 23,
+      "Name": "Botswana",
+      "Continent": "Afrika",
+      "Description": "Botswana, beläget i södra Afrika, blev självständigt från Storbritannien den 30 september 1966. Landet har cirka 2,3 miljoner invånare. Det officiella språket är engelska, men setswana talas också brett.",
+      "FlagImage": "https://flagcdn.com/bw.svg"
+    },
+    {
+      "Id": 24,
+      "Name": "Brasilien",
+      "Continent": "Sydamerika",
+      "Description": "Brasilien, det största landet i Sydamerika, blev självständigt från Portugal den 7 september 1822. Landet har cirka 211 miljoner invånare. Det officiella språket är portugisiska.",
+      "FlagImage": "https://flagcdn.com/br.svg"
+    },
+    {
+      "Id": 25,
+      "Name": "Brunei",
+      "Continent": "Asien",
+      "Description": "Brunei, beläget på ön Borneo i Sydostasien, blev självständigt från Storbritannien den 1 januari 1984. Landet har cirka 437 000 invånare. Det officiella språket är malajiska.",
+      "FlagImage": "https://flagcdn.com/bn.svg"
+    },
+    {
+      "Id": 26,
+      "Name": "Bulgarien",
+      "Continent": "Europa",
+      "Description": "Bulgarien, beläget i Sydöstra Europa, blev självständigt från Osmanska riket den 22 september 1908. Landet har cirka 7 miljoner invånare. Det officiella språket är bulgariska.",
+      "FlagImage": "https://flagcdn.com/bg.svg"
+    },
+    {
+      "Id": 27,
+      "Name": "Burkina Faso",
+      "Continent": "Afrika",
+      "Description": "Burkina Faso, ett land i Västafrika, blev självständigt från Frankrike den 5 augusti 1960. Landet har cirka 21 miljoner invånare. Det officiella språket är franska.",
+      "FlagImage": "https://flagcdn.com/bf.svg"
+    },
+    {
+      "Id": 28,
+      "Name": "Burundi",
+      "Continent": "Afrika",
+      "Description": "Burundi, beläget i Östafrika, blev självständigt från Belgien den 1 juli 1962. Landet har cirka 12 miljoner invånare. De officiella språken är kirundi, franska och engelska.",
+      "FlagImage": "https://flagcdn.com/bi.svg"
+    },
+    {
+      "Id": 29,
+      "Name": "Cabo Verde",
+      "Continent": "Afrika",
+      "Description": "Cabo Verde, en ögrupp utanför nordvästra Afrikas kust, blev självständigt från Portugal den 5 juli 1975. Landet har cirka 550 000 invånare. Det officiella språket är portugisiska.",
+      "FlagImage": "https://flagcdn.com/cv.svg"
+    },
+    {
+      "Id": 30,
+      "Name": "Kambodja",
+      "Continent": "Asien",
+      "Description": "Kambodja, beläget i Sydostasien, blev självständigt från Frankrike den 9 november 1953. Landet har cirka 16 miljoner invånare. Det officiella språket är khmer.",
+      "FlagImage": "https://flagcdn.com/kh.svg"
+    },
+    {
+      "Id": 31,
+      "Name": "Kamerun",
+      "Continent": "Afrika",
+      "Description": "Kamerun, ett land i Centralafrika, blev självständigt från Frankrike den 1 januari 1960. Landet har cirka 26 miljoner invånare. De officiella språken är franska och engelska.",
+      "FlagImage": "https://flagcdn.com/cm.svg"
+    },
+    {
+      "Id": 32,
+      "Name": "Kanada",
+      "Continent": "Nordamerika",
+      "Description": "Kanada, världens näst största land till ytan, blev självständigt från Storbritannien den 1 juli 1867. Landet har cirka 37 miljoner invånare. De officiella språken är engelska och franska.",
+      "FlagImage": "https://flagcdn.com/ca.svg"
+    },
+    {
+      "Id": 33,
+      "Name": "Centralafrikanska republiken",
+      "Continent": "Afrika",
+      "Description": "Centralafrikanska republiken, beläget i hjärtat av Afrika, blev självständigt från Frankrike den 13 augusti 1960. Landet har cirka 4,8 miljoner invånare. De officiella språken är franska och sango.",
+      "FlagImage": "https://flagcdn.com/cf.svg"
+    },
+    {
+      "Id": 34,
+      "Name": "Tchad",
+      "Continent": "Afrika",
+      "Description": "Tchad, beläget i Nord-Centralafrika, blev självständigt från Frankrike den 11 augusti 1960. Landet har cirka 17 miljoner invånare. De officiella språken är franska och arabiska.",
+      "FlagImage": "https://flagcdn.com/td.svg"
+    },
+    {
+      "Id": 35,
+      "Name": "Chile",
+      "Continent": "Sydamerika",
+      "Description": "Chile, beläget i Sydamerika, blev självständigt från Spanien den 18 september 1810. Landet har cirka 19 miljoner invånare. Det officiella språket är spanska.",
+      "FlagImage": "https://flagcdn.com/cl.svg"
+    },
+    {
+      "Id": 36,
+      "Name": "Kina",
+      "Continent": "Asien",
+      "Description": "Kina, världens mest folkrika land med cirka 1,4 miljarder invånare, är en av världens äldsta kontinuerliga civilisationer. Landet grundades som Folkrepubliken Kina den 1 oktober 1949. Det officiella språket är mandarin.",
+      "FlagImage": "https://flagcdn.com/cn.svg"
+    },
+    {
+      "Id": 37,
+      "Name": "Colombia",
+      "Continent": "Sydamerika",
+      "Description": "Colombia, beläget i norra Sydamerika, blev självständigt från Spanien den 20 juli 1810. Landet har cirka 50 miljoner invånare. Det officiella språket är spanska.",
+      "FlagImage": "https://flagcdn.com/co.svg"
+    },
+    {
+      "Id": 38,
+      "Name": "Komorerna",
+      "Continent": "Afrika",
+      "Description": "Komorerna är en ögruppsnation utanför Afrikas östkust som blev självständigt från Frankrike den 6 juli 1975. Landet har cirka 870 000 invånare. De officiella språken är komoriska, arabiska och franska.",
+      "FlagImage": "https://flagcdn.com/km.svg"
+    },
+    {
+      "Id": 39,
+      "Name": "Kongo-Brazzaville",
+      "Continent": "Afrika",
+      "Description": "Kongo-Brazzaville, officiellt Republiken Kongo, blev självständigt från Frankrike den 15 augusti 1960. Landet har cirka 5,5 miljoner invånare. Det officiella språket är franska.",
+      "FlagImage": "https://flagcdn.com/cg.svg"
+    },
+    {
+      "Id": 40,
+      "Name": "Kongo-Kinshasa",
+      "Continent": "Afrika",
+      "Description": "Kongo-Kinshasa, officiellt Demokratiska republiken Kongo, blev självständigt från Belgien den 30 juni 1960. Landet har cirka 89 miljoner invånare. Det officiella språket är franska.",
+      "FlagImage": "https://flagcdn.com/cd.svg"
+    },
+    {
+      "Id": 41,
+      "Name": "Costa Rica",
+      "Continent": "Nordamerika",
+      "Description": "Costa Rica, beläget i Centralamerika, blev självständigt från Spanien den 15 september 1821. Landet har cirka 5 miljoner invånare. Det officiella språket är spanska.",
+      "FlagImage": "https://flagcdn.com/cr.svg"
+    },
+    {
+      "Id": 42,
+      "Name": "Kroatien",
+      "Continent": "Europa",
+      "Description": "Kroatien, beläget i Sydöstra Europa, blev självständigt från Jugoslavien den 25 juni 1991. Landet har cirka 4 miljoner invånare. Det officiella språket är kroatiska.",
+      "FlagImage": "https://flagcdn.com/hr.svg"
+    },
+    {
+      "Id": 43,
+      "Name": "Kuba",
+      "Continent": "Nordamerika",
+      "Description": "Kuba, en ö-nation i Karibien, blev självständigt från Spanien den 20 maj 1902. Landet har cirka 11 miljoner invånare. Det officiella språket är spanska.",
+      "FlagImage": "https://flagcdn.com/cu.svg"
+    },
+    {
+      "Id": 44,
+      "Name": "Cypern",
+      "Continent": "Asien",
+      "Description": "Cypern, en ö i östra Medelhavet, blev självständigt från Storbritannien den 16 augusti 1960. Landet har cirka 1,2 miljoner invånare. De officiella språken är grekiska och turkiska.",
+      "FlagImage": "https://flagcdn.com/cy.svg"
+    },
+    {
+      "Id": 45,
+      "Name": "Tjeckien",
+      "Continent": "Europa",
+      "Description": "Tjeckien, beläget i Centraleuropa, blev självständigt som Tjeckoslovakien från Österrike-Ungern den 28 oktober 1918. Landet har cirka 10,7 miljoner invånare. Det officiella språket är tjeckiska.",
+      "FlagImage": "https://flagcdn.com/cz.svg"
+    },
+    {
+      "Id": 46,
+      "Name": "Danmark",
+      "Continent": "Europa",
+      "Description": "Danmark, ett nordiskt land i Europa, har en lång historia som självständig nation och är världens äldsta monarki. Landet har cirka 5,8 miljoner invånare. Det officiella språket är danska.",
+      "FlagImage": "https://flagcdn.com/dk.svg"
+    },
+    {
+      "Id": 47,
+      "Name": "Djibouti",
+      "Continent": "Afrika",
+      "Description": "Djibouti, beläget i Afrikas horn, blev självständigt från Frankrike den 27 juni 1977. Landet har cirka 1 miljon invånare. De officiella språken är franska och arabiska.",
+      "FlagImage": "https://flagcdn.com/dj.svg"
+    },
+    {
+      "Id": 48,
+      "Name": "Dominica",
+      "Continent": "Nordamerika",
+      "Description": "Dominica, en ö-nation i Karibien, blev självständigt från Storbritannien den 3 november 1978. Landet har cirka 71 000 invånare. Det officiella språket är engelska.",
+      "FlagImage": "https://flagcdn.com/dm.svg"
+    },
+    {
+      "Id": 49,
+      "Name": "Dominikanska republiken",
+      "Continent": "Nordamerika",
+      "Description": "Dominikanska republiken, beläget på ön Hispaniola i Karibien, blev självständigt från Haiti den 27 februari 1844. Landet har cirka 10,8 miljoner invånare. Det officiella språket är spanska.",
+      "FlagImage": "https://flagcdn.com/do.svg"
+    },
+    {
+      "Id": 50,
+      "Name": "Östtimor",
+      "Continent": "Asien",
+      "Description": "Östtimor, beläget i Sydostasien, blev självständigt från Indonesien den 20 maj 2002. Landet har cirka 1,3 miljoner invånare. Det officiella språket är portugisiska och tetum.",
+      "FlagImage": "https://flagcdn.com/tl.svg"
+    },
+    {
+      "Id": 51,
+      "Name": "Ecuador",
+      "Continent": "Sydamerika",
+      "Description": "Ecuador, beläget i nordvästra Sydamerika, blev självständigt från Spanien den 24 maj 1822. Landet har cirka 17 miljoner invånare. Det officiella språket är spanska.",
+      "FlagImage": "https://flagcdn.com/ec.svg"
+    },
+    {
+      "Id": 52,
+      "Name": "Egypten",
+      "Continent": "Afrika",
+      "Description": "Egypten, beläget i Nordafrika, blev självständigt från Storbritannien den 28 februari 1922. Landet har cirka 100 miljoner invånare. Det officiella språket är arabiska.",
+      "FlagImage": "https://flagcdn.com/eg.svg"
+    },
+    {
+      "Id": 53,
+      "Name": "El Salvador",
+      "Continent": "Nordamerika",
+      "Description": "El Salvador, beläget i Centralamerika, blev självständigt från Spanien den 15 september 1821. Landet har cirka 6,5 miljoner invånare. Det officiella språket är spanska.",
+      "FlagImage": "https://flagcdn.com/sv.svg"
+    },
+    {
+      "Id": 54,
+      "Name": "Ekvatorialguinea",
+      "Continent": "Afrika",
+      "Description": "Ekvatorialguinea, beläget i Centralafrika, blev självständigt från Spanien den 12 oktober 1968. Landet har cirka 1,4 miljoner invånare. Det officiella språket är spanska.",
+      "FlagImage": "https://flagcdn.com/gq.svg"
+    },
+    {
+      "Id": 55,
+      "Name": "Eritrea",
+      "Continent": "Afrika",
+      "Description": "Eritrea, beläget i östra Afrika vid Röda havet, blev självständigt från Etiopien den 24 maj 1993. Landet har cirka 5,3 miljoner invånare. De officiella språken är tigrinska, arabiska och engelska.",
+      "FlagImage": "https://flagcdn.com/er.svg"
+    },
+    {
+      "Id": 56,
+      "Name": "Estland",
+      "Continent": "Europa",
+      "Description": "Estland, beläget i norra Europa vid Östersjön, blev självständigt från Sovjetunionen den 20 augusti 1991. Landet har cirka 1,3 miljoner invånare. Det officiella språket är estniska.",
+      "FlagImage": "https://flagcdn.com/ee.svg"
+    },
+    {
+      "Id": 57,
+      "Name": "Eswatini",
+      "Continent": "Afrika",
+      "Description": "Eswatini, tidigare känt som Swaziland, är ett litet land i södra Afrika. Det blev självständigt från Storbritannien den 6 september 1968. Landet har cirka 1,1 miljoner invånare. De officiella språken är swazi och engelska.",
+      "FlagImage": "https://flagcdn.com/sz.svg"
+    },
+    {
+      "Id": 58,
+      "Name": "Etiopien",
+      "Continent": "Afrika",
+      "Description": "Etiopien, beläget i östra Afrika, är en av världens äldsta nationer och har aldrig varit koloniserat. Landet har cirka 115 miljoner invånare. Det officiella språket är amhariska.",
+      "FlagImage": "https://flagcdn.com/et.svg"
+    },
+    {
+      "Id": 59,
+      "Name": "Fiji",
+      "Continent": "Oceanien",
+      "Description": "Fiji, en ögrupp i Stilla havet, blev självständigt från Storbritannien den 10 oktober 1970. Landet har cirka 900 000 invånare. De officiella språken är engelska, fijianska och hindi.",
+      "FlagImage": "https://flagcdn.com/fj.svg"
+    },
+    {
+      "Id": 60,
+      "Name": "Finland",
+      "Continent": "Europa",
+      "Description": "Finland, beläget i norra Europa, blev självständigt från Ryssland den 6 december 1917. Landet har cirka 5,5 miljoner invånare. De officiella språken är finska och svenska.",
+      "FlagImage": "https://flagcdn.com/fi.svg"
+    },
+    {
+      "Id": 61,
+      "Name": "Frankrike",
+      "Continent": "Europa",
+      "Description": "Frankrike, beläget i Västeuropa, är en av världens äldsta nationer. Landet har cirka 67 miljoner invånare. Det officiella språket är franska.",
+      "FlagImage": "https://flagcdn.com/fr.svg"
+    },
+    {
+      "Id": 62,
+      "Name": "Gabon",
+      "Continent": "Afrika",
+      "Description": "Gabon, beläget i Centralafrika, blev självständigt från Frankrike den 17 augusti 1960. Landet har cirka 2,2 miljoner invånare. Det officiella språket är franska.",
+      "FlagImage": "https://flagcdn.com/ga.svg"
+    },
+    {
+      "Id": 63,
+      "Name": "Gambia",
+      "Continent": "Afrika",
+      "Description": "Gambia, ett litet land i Västafrika, blev självständigt från Storbritannien den 18 februari 1965. Landet har cirka 2,4 miljoner invånare. Det officiella språket är engelska.",
+      "FlagImage": "https://flagcdn.com/gm.svg"
+    },
+    {
+      "Id": 64,
+      "Name": "Georgien",
+      "Continent": "Asien",
+      "Description": "Georgien, beläget vid gränsen mellan Europa och Asien, blev självständigt från Sovjetunionen den 9 april 1991. Landet har cirka 3,7 miljoner invånare. Det officiella språket är georgiska.",
+      "FlagImage": "https://flagcdn.com/ge.svg"
+    },
+    {
+      "Id": 65,
+      "Name": "Tyskland",
+      "Continent": "Europa",
+      "Description": "Tyskland, beläget i Centraleuropa, återförenades som en nation den 3 oktober 1990 efter att ha varit uppdelat efter andra världskriget. Landet har cirka 83 miljoner invånare. Det officiella språket är tyska.",
+      "FlagImage": "https://flagcdn.com/de.svg"
+    },
+    {
+      "Id": 66,
+      "Name": "Ghana",
+      "Continent": "Afrika",
+      "Description": "Ghana, beläget i Västafrika, blev självständigt från Storbritannien den 6 mars 1957. Landet har cirka 31 miljoner invånare. Det officiella språket är engelska.",
+      "FlagImage": "https://flagcdn.com/gh.svg"
+    },
+    {
+      "Id": 67,
+      "Name": "Grekland",
+      "Continent": "Europa",
+      "Description": "Grekland, beläget i Sydöstra Europa, är känt som demokratins födelseplats. Landet blev självständigt från Osmanska riket den 25 mars 1821. Landet har cirka 10,4 miljoner invånare. Det officiella språket är grekiska.",
+      "FlagImage": "https://flagcdn.com/gr.svg"
+    },
+    {
+      "Id": 68,
+      "Name": "Grenada",
+      "Continent": "Nordamerika",
+      "Description": "Grenada, en ö-nation i Karibien, blev självständigt från Storbritannien den 7 februari 1974. Landet har cirka 112 000 invånare. Det officiella språket är engelska.",
+      "FlagImage": "https://flagcdn.com/gd.svg"
+    },
+    {
+      "Id": 69,
+      "Name": "Guatemala",
+      "Continent": "Nordamerika",
+      "Description": "Guatemala, beläget i Centralamerika, blev självständigt från Spanien den 15 september 1821. Landet har cirka 18 miljoner invånare. Det officiella språket är spanska.",
+      "FlagImage": "https://flagcdn.com/gt.svg"
+    },
+    {
+      "Id": 70,
+      "Name": "Guinea",
+      "Continent": "Afrika",
+      "Description": "Guinea, beläget i Västafrika, blev självständigt från Frankrike den 2 oktober 1958. Landet har cirka 13 miljoner invånare. Det officiella språket är franska.",
+      "FlagImage": "https://flagcdn.com/gn.svg"
+    },
+    {
+      "Id": 71,
+      "Name": "Guinea-Bissau",
+      "Continent": "Afrika",
+      "Description": "Guinea-Bissau, beläget i Västafrika, blev självständigt från Portugal den 24 september 1973. Landet har cirka 2 miljoner invånare. Det officiella språket är portugisiska.",
+      "FlagImage": "https://flagcdn.com/gw.svg"
+    },
+    {
+      "Id": 72,
+      "Name": "Guyana",
+      "Continent": "Sydamerika",
+      "Description": "Guyana, beläget i norra Sydamerika, blev självständigt från Storbritannien den 26 maj 1966. Landet har cirka 786 000 invånare. Det officiella språket är engelska.",
+      "FlagImage": "https://flagcdn.com/gy.svg"
+    },
+    {
+      "Id": 73,
+      "Name": "Haiti",
+      "Continent": "Nordamerika",
+      "Description": "Haiti, beläget på ön Hispaniola i Karibien, blev självständigt från Frankrike den 1 januari 1804. Landet har cirka 11 miljoner invånare. De officiella språken är franska och haitisk kreol.",
+      "FlagImage": "https://flagcdn.com/ht.svg"
+    },
+    {
+      "Id": 74,
+      "Name": "Honduras",
+      "Continent": "Nordamerika",
+      "Description": "Honduras, beläget i Centralamerika, blev självständigt från Spanien den 15 september 1821. Landet har cirka 9,9 miljoner invånare. Det officiella språket är spanska.",
+      "FlagImage": "https://flagcdn.com/hn.svg"
+    },
+    {
+      "Id": 75,
+      "Name": "Ungern",
+      "Continent": "Europa",
+      "Description": "Ungern, beläget i Centraleuropa, blev en självständig stat efter första världskriget den 31 oktober 1918. Landet har cirka 9,6 miljoner invånare. Det officiella språket är ungerska.",
+      "FlagImage": "https://flagcdn.com/hu.svg"
+    },
+    {
+      "Id": 76,
+      "Name": "Island",
+      "Continent": "Europa",
+      "Description": "Island, beläget i norra Atlanten, blev en självständig republik den 17 juni 1944. Landet har cirka 364 000 invånare. Det officiella språket är isländska.",
+      "FlagImage": "https://flagcdn.com/is.svg"
+    },
+    {
+      "Id": 77,
+      "Name": "Indien",
+      "Continent": "Asien",
+      "Description": "Indien, beläget i Sydasien, blev självständigt från Storbritannien den 15 augusti 1947. Landet har cirka 1,3 miljarder invånare. De officiella språken är hindi och engelska.",
+      "FlagImage": "https://flagcdn.com/in.svg"
+    },
+    {
+      "Id": 78,
+      "Name": "Indonesien",
+      "Continent": "Asien",
+      "Description": "Indonesien, en ö-nation i Sydostasien, blev självständigt från Nederländerna den 17 augusti 1945. Landet har cirka 270 miljoner invånare. Det officiella språket är indonesiska.",
+      "FlagImage": "https://flagcdn.com/id.svg"
+    },
+    {
+      "Id": 79,
+      "Name": "Iran",
+      "Continent": "Asien",
+      "Description": "Iran, beläget i Mellanöstern, blev en islamisk republik efter revolutionen den 11 februari 1979. Landet har cirka 83 miljoner invånare. Det officiella språket är persiska.",
+      "FlagImage": "https://flagcdn.com/ir.svg"
+    },
+    {
+      "Id": 80,
+      "Name": "Irak",
+      "Continent": "Asien",
+      "Description": "Irak, beläget i Mellanöstern, blev självständigt från Storbritannien den 3 oktober 1932. Landet har cirka 40 miljoner invånare. De officiella språken är arabiska och kurdiska.",
+      "FlagImage": "https://flagcdn.com/iq.svg"
+    },
+    {
+      "Id": 81,
+      "Name": "Irland",
+      "Continent": "Europa",
+      "Description": "Irland, beläget i nordvästra Europa, blev en självständig stat från Storbritannien den 6 december 1922. Landet har cirka 4,9 miljoner invånare. Det officiella språket är iriska och engelska.",
+      "FlagImage": "https://flagcdn.com/ie.svg"
+    },
+    {
+      "Id": 82,
+      "Name": "Palestina",
+      "Continent": "Asien",
+      "Description": "Palestina, beläget i Mellanöstern, består av Västbanken och Gaza. Befolkningen uppgår till cirka 5 miljoner invånare. Det officiella språket är arabiska.",
+      "FlagImage": "https://flagcdn.com/ps.svg"
+    },
+    {
+      "Id": 83,
+      "Name": "Italien",
+      "Continent": "Europa",
+      "Description": "Italien, beläget i Sydeuropa, enades som en nation den 17 mars 1861. Landet har cirka 60 miljoner invånare. Det officiella språket är italienska.",
+      "FlagImage": "https://flagcdn.com/it.svg"
+    },
+    {
+      "Id": 84,
+      "Name": "Jamaica",
+      "Continent": "Nordamerika",
+      "Description": "Jamaica, en ö-nation i Karibien, blev självständigt från Storbritannien den 6 augusti 1962. Landet har cirka 2,9 miljoner invånare. Det officiella språket är engelska.",
+      "FlagImage": "https://flagcdn.com/jm.svg"
+    },
+    {
+      "Id": 85,
+      "Name": "Japan",
+      "Continent": "Asien",
+      "Description": "Japan, en ö-nation i Östasien, är en av världens äldsta nationer. Landet har cirka 126 miljoner invånare. Det officiella språket är japanska.",
+      "FlagImage": "https://flagcdn.com/jp.svg"
+    },
+    {
+      "Id": 86,
+      "Name": "Jordanien",
+      "Continent": "Asien",
+      "Description": "Jordanien, beläget i Mellanöstern, blev självständigt från Storbritannien den 25 maj 1946. Landet har cirka 10 miljoner invånare. Det officiella språket är arabiska.",
+      "FlagImage": "https://flagcdn.com/jo.svg"
+    },
+    {
+      "Id": 87,
+      "Name": "Kazakhstan",
+      "Continent": "Asien",
+      "Description": "Kazakhstan, världens största landlocked nation, blev självständigt från Sovjetunionen den 16 december 1991. Landet har cirka 19 miljoner invånare. De officiella språken är kazakiska och ryska.",
+      "FlagImage": "https://flagcdn.com/kz.svg"
+    },
+    {
+      "Id": 88,
+      "Name": "Kenya",
+      "Continent": "Afrika",
+      "Description": "Kenya, beläget i östra Afrika, blev självständigt från Storbritannien den 12 december 1963. Landet har cirka 53 miljoner invånare. Det officiella språket är engelska och swahili.",
+      "FlagImage": "https://flagcdn.com/ke.svg"
+    },
+    {
+      "Id": 89,
+      "Name": "Kiribati",
+      "Continent": "Oceanien",
+      "Description": "Kiribati, en ö-nation i Stilla havet, blev självständigt från Storbritannien den 12 juli 1979. Landet har cirka 119 000 invånare. De officiella språken är engelska och gilbertesiska.",
+      "FlagImage": "https://flagcdn.com/ki.svg"
+    },
+    {
+      "Id": 90,
+      "Name": "Nordkorea",
+      "Continent": "Asien",
+      "Description": "Nordkorea, beläget i Östasien, blev en självständig stat efter delningen av Korea den 9 september 1948. Landet har cirka 25 miljoner invånare. Det officiella språket är koreanska.",
+      "FlagImage": "https://flagcdn.com/kp.svg"
+    },
+    {
+      "Id": 91,
+      "Name": "Sydkorea",
+      "Continent": "Asien",
+      "Description": "Sydkorea, beläget i Östasien, blev en självständig stat efter delningen av Korea den 15 augusti 1948. Landet har cirka 52 miljoner invånare. Det officiella språket är koreanska.",
+      "FlagImage": "https://flagcdn.com/kr.svg"
+    },
+    {
+      "Id": 92,
+      "Name": "Kuwait",
+      "Continent": "Asien",
+      "Description": "Kuwait, beläget i Mellanöstern vid Persiska viken, blev självständigt från Storbritannien den 19 juni 1961. Landet har cirka 4,2 miljoner invånare. Det officiella språket är arabiska.",
+      "FlagImage": "https://flagcdn.com/kw.svg"
+    },
+    {
+      "Id": 93,
+      "Name": "Kirgizistan",
+      "Continent": "Asien",
+      "Description": "Kirgizistan, beläget i Centralasien, blev självständigt från Sovjetunionen den 31 augusti 1991. Landet har cirka 6,5 miljoner invånare. De officiella språken är kirgiziska och ryska.",
+      "FlagImage": "https://flagcdn.com/kg.svg"
+    },
+    {
+      "Id": 94,
+      "Name": "Laos",
+      "Continent": "Asien",
+      "Description": "Laos, beläget i Sydostasien, blev självständigt från Frankrike den 19 juli 1949. Landet har cirka 7,2 miljoner invånare. Det officiella språket är lao.",
+      "FlagImage": "https://flagcdn.com/la.svg"
+    },
+    {
+      "Id": 95,
+      "Name": "Lettland",
+      "Continent": "Europa",
+      "Description": "Lettland, beläget i norra Europa vid Östersjön, blev självständigt från Sovjetunionen den 21 augusti 1991. Landet har cirka 1,9 miljoner invånare. Det officiella språket är lettiska.",
+      "FlagImage": "https://flagcdn.com/lv.svg"
+    },
+    {
+      "Id": 96,
+      "Name": "Libanon",
+      "Continent": "Asien",
+      "Description": "Libanon, beläget i Mellanöstern, blev självständigt från Frankrike den 22 november 1943. Landet har cirka 6,8 miljoner invånare. Det officiella språket är arabiska.",
+      "FlagImage": "https://flagcdn.com/lb.svg"
+    },
+    {
+      "Id": 97,
+      "Name": "Lesotho",
+      "Continent": "Afrika",
+      "Description": "Lesotho, ett bergigt kungarike i södra Afrika, blev självständigt från Storbritannien den 4 oktober 1966. Landet har cirka 2,1 miljoner invånare. Det officiella språket är engelska, men sesotho talas också brett.",
+      "FlagImage": "https://flagcdn.com/ls.svg"
+    },
+    {
+      "Id": 98,
+      "Name": "Liberia",
+      "Continent": "Afrika",
+      "Description": "Liberia, beläget i Västafrika, är Afrikas äldsta självständiga republik, grundad av tidigare slavar från USA. Landet förklarade självständighet den 26 juli 1847. Landet har cirka 5 miljoner invånare. Det officiella språket är engelska.",
+      "FlagImage": "https://flagcdn.com/lr.svg"
+    },
+    {
+      "Id": 99,
+      "Name": "Libyen",
+      "Continent": "Afrika",
+      "Description": "Libyen, beläget i Nordafrika, blev självständigt från Italien den 24 december 1951. Landet har cirka 6,8 miljoner invånare. Det officiella språket är arabiska.",
+      "FlagImage": "https://flagcdn.com/ly.svg"
+    },
+    {
+      "Id": 100,
+      "Name": "Liechtenstein",
+      "Continent": "Europa",
+      "Description": "Liechtenstein, ett litet furstendöme i Centraleuropa, blev självständigt från det Tysk-romerska riket den 23 januari 1719. Landet har cirka 39 000 invånare. Det officiella språket är tyska.",
+      "FlagImage": "https://flagcdn.com/li.svg"
+    },
+    {
+      "Id": 101,
+      "Name": "Litauen",
+      "Continent": "Europa",
+      "Description": "Litauen, beläget i norra Europa vid Östersjön, blev självständigt från Sovjetunionen den 11 mars 1990. Landet har cirka 2,8 miljoner invånare. Det officiella språket är litauiska.",
+      "FlagImage": "https://flagcdn.com/lt.svg"
+    },
+    {
+      "Id": 102,
+      "Name": "Luxemburg",
+      "Continent": "Europa",
+      "Description": "Luxemburg, ett litet land i Västeuropa, har en historia av självständighet som går tillbaka till 1815. Landet har cirka 630 000 invånare. De officiella språken är luxemburgiska, franska och tyska.",
+      "FlagImage": "https://flagcdn.com/lu.svg"
+    },
+    {
+      "Id": 103,
+      "Name": "Madagaskar",
+      "Continent": "Afrika",
+      "Description": "Madagaskar, en ö-nation utanför Afrikas östkust, blev självständigt från Frankrike den 26 juni 1960. Landet har cirka 27 miljoner invånare. Det officiella språket är malagassiska och franska.",
+      "FlagImage": "https://flagcdn.com/mg.svg"
+    },
+    {
+      "Id": 104,
+      "Name": "Malawi",
+      "Continent": "Afrika",
+      "Description": "Malawi, beläget i södra Afrika, blev självständigt från Storbritannien den 6 juli 1964. Landet har cirka 19 miljoner invånare. Det officiella språket är engelska, men chichewa talas också brett.",
+      "FlagImage": "https://flagcdn.com/mw.svg"
+    },
+    {
+      "Id": 105,
+      "Name": "Malaysia",
+      "Continent": "Asien",
+      "Description": "Malaysia, beläget i Sydostasien, blev självständigt från Storbritannien den 31 augusti 1957. Landet har cirka 32 miljoner invånare. Det officiella språket är malajiska.",
+      "FlagImage": "https://flagcdn.com/my.svg"
+    },
+    {
+      "Id": 106,
+      "Name": "Maldiverna",
+      "Continent": "Asien",
+      "Description": "Maldiverna, en ö-nation i Indiska oceanen, blev självständigt från Storbritannien den 26 juli 1965. Landet har cirka 530 000 invånare. Det officiella språket är dhivehi.",
+      "FlagImage": "https://flagcdn.com/mv.svg"
+    },
+    {
+      "Id": 107,
+      "Name": "Mali",
+      "Continent": "Afrika",
+      "Description": "Mali, beläget i Västafrika, blev självständigt från Frankrike den 22 september 1960. Landet har cirka 20 miljoner invånare. Det officiella språket är franska.",
+      "FlagImage": "https://flagcdn.com/ml.svg"
+    },
+    {
+      "Id": 108,
+      "Name": "Malta",
+      "Continent": "Europa",
+      "Description": "Malta, en ö-nation i Medelhavet, blev självständigt från Storbritannien den 21 september 1964. Landet har cirka 514 000 invånare. De officiella språken är maltesiska och engelska.",
+      "FlagImage": "https://flagcdn.com/mt.svg"
+    },
+    {
+      "Id": 109,
+      "Name": "Marshallöarna",
+      "Continent": "Oceanien",
+      "Description": "Marshallöarna, en ö-nation i Stilla havet, blev självständigt från USA den 21 oktober 1986. Landet har cirka 59 000 invånare. De officiella språken är marshallesiska och engelska.",
+      "FlagImage": "https://flagcdn.com/mh.svg"
+    },
+    {
+      "Id": 110,
+      "Name": "Mauretanien",
+      "Continent": "Afrika",
+      "Description": "Mauretanien, beläget i Västafrika, blev självständigt från Frankrike den 28 november 1960. Landet har cirka 4,5 miljoner invånare. Det officiella språket är arabiska.",
+      "FlagImage": "https://flagcdn.com/mr.svg"
+    },
+    {
+      "Id": 111,
+      "Name": "Mauritius",
+      "Continent": "Afrika",
+      "Description": "Mauritius, en ö-nation i Indiska oceanen, blev självständigt från Storbritannien den 12 mars 1968. Landet har cirka 1,3 miljoner invånare. De officiella språken är engelska och franska.",
+      "FlagImage": "https://flagcdn.com/mu.svg"
+    },
+    {
+      "Id": 112,
+      "Name": "Mexiko",
+      "Continent": "Nordamerika",
+      "Description": "Mexiko, beläget i Nordamerika, blev självständigt från Spanien den 16 september 1810. Landet har cirka 126 miljoner invånare. Det officiella språket är spanska.",
+      "FlagImage": "https://flagcdn.com/mx.svg"
+    },
+    {
+      "Id": 113,
+      "Name": "Mikronesien",
+      "Continent": "Oceanien",
+      "Description": "Mikronesien, en ögrupp i Stilla havet, blev självständigt från USA den 3 november 1986. Landet har cirka 113 000 invånare. De officiella språken är engelska och mikronesiska.",
+      "FlagImage": "https://flagcdn.com/fm.svg"
+    },
+    {
+      "Id": 114,
+      "Name": "Moldavien",
+      "Continent": "Europa",
+      "Description": "Moldavien, beläget i Östeuropa, blev självständigt från Sovjetunionen den 27 augusti 1991. Landet har cirka 2,6 miljoner invånare. Det officiella språket är rumänska.",
+      "FlagImage": "https://flagcdn.com/md.svg"
+    },
+    {
+      "Id": 115,
+      "Name": "Monaco",
+      "Continent": "Europa",
+      "Description": "Monaco, en liten stad-stat på Franska rivieran, är världens näst minsta land och är känt för sin lyxiga livsstil. Landet har cirka 39 000 invånare. Det officiella språket är franska.",
+      "FlagImage": "https://flagcdn.com/mc.svg"
+    },
+    {
+      "Id": 116,
+      "Name": "Mongoliet",
+      "Continent": "Asien",
+      "Description": "Mongoliet, beläget i Östasien, blev självständigt från Kina den 29 december 1911. Landet har cirka 3,2 miljoner invånare. Det officiella språket är mongoliska.",
+      "FlagImage": "https://flagcdn.com/mn.svg"
+    },
+    {
+      "Id": 117,
+      "Name": "Montenegro",
+      "Continent": "Europa",
+      "Description": "Montenegro, beläget på Balkanhalvön, blev självständigt från Serbien den 3 juni 2006. Landet har cirka 620 000 invånare. Det officiella språket är montenegrinska.",
+      "FlagImage": "https://flagcdn.com/me.svg"
+    },
+    {
+      "Id": 118,
+      "Name": "Marocko",
+      "Continent": "Afrika",
+      "Description": "Marocko, beläget i Nordafrika, blev självständigt från Frankrike den 2 mars 1956. Landet har cirka 36 miljoner invånare. Det officiella språket är arabiska.",
+      "FlagImage": "https://flagcdn.com/ma.svg"
+    },
+    {
+      "Id": 119,
+      "Name": "Mozambique",
+      "Continent": "Afrika",
+      "Description": "Mozambique, beläget på östra Afrikas kust, blev självständigt från Portugal den 25 juni 1975. Landet har cirka 31 miljoner invånare. Det officiella språket är portugisiska.",
+      "FlagImage": "https://flagcdn.com/mz.svg"
+    },
+    {
+      "Id": 120,
+      "Name": "Myanmar",
+      "Continent": "Asien",
+      "Description": "Myanmar, tidigare känt som Burma, är beläget i Sydostasien. Landet blev självständigt från Storbritannien den 4 januari 1948. Landet har cirka 54 miljoner invånare. Det officiella språket är burmesiska.",
+      "FlagImage": "https://flagcdn.com/mm.svg"
+    },
+    {
+      "Id": 121,
+      "Name": "Namibia",
+      "Continent": "Afrika",
+      "Description": "Namibia, beläget i södra Afrika, blev självständigt från Sydafrika den 21 mars 1990. Landet har cirka 2,5 miljoner invånare. De officiella språken är engelska och afrikaans.",
+      "FlagImage": "https://flagcdn.com/na.svg"
+    },
+    {
+      "Id": 122,
+      "Name": "Nauru",
+      "Continent": "Oceanien",
+      "Description": "Nauru, en ö-nation i Stilla havet, blev självständigt från Australien den 31 januari 1968. Landet har cirka 10 000 invånare. Det officiella språket är nauriska och engelska.",
+      "FlagImage": "https://flagcdn.com/nr.svg"
+    },
+    {
+      "Id": 123,
+      "Name": "Nepal",
+      "Continent": "Asien",
+      "Description": "Nepal, beläget i Himalaya i Sydasien, har aldrig varit koloniserat. Landet har cirka 30 miljoner invånare. Det officiella språket är nepali.",
+      "FlagImage": "https://flagcdn.com/np.svg"
+    },
+    {
+      "Id": 124,
+      "Name": "Nederländerna",
+      "Continent": "Europa",
+      "Description": "Nederländerna, beläget i Västeuropa, blev en självständig nation 1648 efter att ha vunnit oberoende från Spanien. Landet har cirka 17,4 miljoner invånare. Det officiella språket är nederländska.",
+      "FlagImage": "https://flagcdn.com/nl.svg"
+    },
+    {
+      "Id": 125,
+      "Name": "Nya Zeeland",
+      "Continent": "Oceanien",
+      "Description": "Nya Zeeland, en ö-nation i Stilla havet, blev självständigt från Storbritannien den 26 september 1907. Landet har cirka 5 miljoner invånare. Det officiella språket är engelska och maori.",
+      "FlagImage": "https://flagcdn.com/nz.svg"
+    },
+    {
+      "Id": 126,
+      "Name": "Nicaragua",
+      "Continent": "Nordamerika",
+      "Description": "Nicaragua, beläget i Centralamerika, blev självständigt från Spanien den 15 september 1821. Landet har cirka 6,6 miljoner invånare. Det officiella språket är spanska.",
+      "FlagImage": "https://flagcdn.com/ni.svg"
+    },
+    {
+      "Id": 127,
+      "Name": "Niger",
+      "Continent": "Afrika",
+      "Description": "Niger, ett land i Västafrika, blev självständigt från Frankrike den 3 augusti 1960. Landet har cirka 24 miljoner invånare. Det officiella språket är franska.",
+      "FlagImage": "https://flagcdn.com/ne.svg"
+    },
+    {
+      "Id": 128,
+      "Name": "Nigeria",
+      "Continent": "Afrika",
+      "Description": "Nigeria, beläget i Västafrika, är Afrikas folkrikaste land med cirka 206 miljoner invånare. Landet blev självständigt från Storbritannien den 1 oktober 1960. Det officiella språket är engelska.",
+      "FlagImage": "https://flagcdn.com/ng.svg"
+    },
+    {
+      "Id": 129,
+      "Name": "Nordmakedonien",
+      "Continent": "Europa",
+      "Description": "Nordmakedonien, beläget på Balkanhalvön, blev självständigt från Jugoslavien den 8 september 1991. Landet har cirka 2 miljoner invånare. Det officiella språket är makedonska.",
+      "FlagImage": "https://flagcdn.com/mk.svg"
+    },
+    {
+      "Id": 130,
+      "Name": "Norge",
+      "Continent": "Europa",
+      "Description": "Norge, beläget i norra Europa, blev självständigt från Sverige den 7 juni 1905. Landet har cirka 5,4 miljoner invånare. Det officiella språket är norska.",
+      "FlagImage": "https://flagcdn.com/no.svg"
+    },
+    {
+      "Id": 131,
+      "Name": "Oman",
+      "Continent": "Asien",
+      "Description": "Oman, beläget på Arabiska halvön, är ett av de äldsta självständiga staterna i Arabvärlden. Landet har cirka 4,5 miljoner invånare. Det officiella språket är arabiska.",
+      "FlagImage": "https://flagcdn.com/om.svg"
+    },
+    {
+      "Id": 132,
+      "Name": "Pakistan",
+      "Continent": "Asien",
+      "Description": "Pakistan, beläget i Sydasien, blev självständigt från Storbritannien den 14 augusti 1947. Landet har cirka 220 miljoner invånare. Det officiella språket är urdu.",
+      "FlagImage": "https://flagcdn.com/pk.svg"
+    },
+    {
+      "Id": 133,
+      "Name": "Palau",
+      "Continent": "Oceanien",
+      "Description": "Palau, en ö-nation i Stilla havet, blev självständigt från USA den 1 oktober 1994. Landet har cirka 18 000 invånare. De officiella språken är palauanska och engelska.",
+      "FlagImage": "https://flagcdn.com/pw.svg"
+    },
+    {
+      "Id": 134,
+      "Name": "Panama",
+      "Continent": "Nordamerika",
+      "Description": "Panama, beläget i Centralamerika, blev självständigt från Colombia den 3 november 1903. Landet har cirka 4,2 miljoner invånare. Det officiella språket är spanska.",
+      "FlagImage": "https://flagcdn.com/pa.svg"
+    },
+    {
+      "Id": 135,
+      "Name": "Papua Nya Guinea",
+      "Continent": "Oceanien",
+      "Description": "Papua Nya Guinea, beläget i Melanesien i Stilla havet, blev självständigt från Australien den 16 september 1975. Landet har cirka 9 miljoner invånare. Det officiella språket är engelska och tok pisin.",
+      "FlagImage": "https://flagcdn.com/pg.svg"
+    },
+    {
+      "Id": 136,
+      "Name": "Paraguay",
+      "Continent": "Sydamerika",
+      "Description": "Paraguay, beläget i Sydamerika, blev självständigt från Spanien den 14 maj 1811. Landet har cirka 7 miljoner invånare. Det officiella språket är spanska och guarani.",
+      "FlagImage": "https://flagcdn.com/py.svg"
+    },
+    {
+      "Id": 137,
+      "Name": "Peru",
+      "Continent": "Sydamerika",
+      "Description": "Peru, beläget i Sydamerika, blev självständigt från Spanien den 28 juli 1821. Landet har cirka 33 miljoner invånare. Det officiella språket är spanska.",
+      "FlagImage": "https://flagcdn.com/pe.svg"
+    },
+    {
+      "Id": 138,
+      "Name": "Filippinerna",
+      "Continent": "Asien",
+      "Description": "Filippinerna, en ö-nation i Sydostasien, blev självständigt från USA den 4 juli 1946. Landet har cirka 109 miljoner invånare. De officiella språken är filippinska och engelska.",
+      "FlagImage": "https://flagcdn.com/ph.svg"
+    },
+    {
+      "Id": 139,
+      "Name": "Polen",
+      "Continent": "Europa",
+      "Description": "Polen, beläget i Centraleuropa, återuppstod som en självständig nation den 11 november 1918 efter första världskriget. Landet har cirka 38 miljoner invånare. Det officiella språket är polska.",
+      "FlagImage": "https://flagcdn.com/pl.svg"
+    },
+    {
+      "Id": 140,
+      "Name": "Portugal",
+      "Continent": "Europa",
+      "Description": "Portugal, beläget i Västeuropa, är en av världens äldsta nationer. Landet har cirka 10,3 miljoner invånare. Det officiella språket är portugisiska.",
+      "FlagImage": "https://flagcdn.com/pt.svg"
+    },
+    {
+      "Id": 141,
+      "Name": "Qatar",
+      "Continent": "Asien",
+      "Description": "Qatar, en halvö-nation i Persiska viken, blev självständigt från Storbritannien den 3 september 1971. Landet har cirka 2,7 miljoner invånare. Det officiella språket är arabiska.",
+      "FlagImage": "https://flagcdn.com/qa.svg"
+    },
+    {
+      "Id": 142,
+      "Name": "Rumänien",
+      "Continent": "Europa",
+      "Description": "Rumänien, beläget i Östeuropa, enades som en nation den 24 januari 1859. Landet har cirka 19 miljoner invånare. Det officiella språket är rumänska.",
+      "FlagImage": "https://flagcdn.com/ro.svg"
+    },
+    {
+      "Id": 143,
+      "Name": "Ryssland",
+      "Continent": "Europa",
+      "Description": "Ryssland, världens största land till ytan, blev självständigt efter upplösningen av Sovjetunionen den 25 december 1991. Landet har cirka 146 miljoner invånare. Det officiella språket är ryska.",
+      "FlagImage": "https://flagcdn.com/ru.svg"
+    },
+    {
+      "Id": 144,
+      "Name": "Rwanda",
+      "Continent": "Afrika",
+      "Description": "Rwanda, beläget i Östafrika, blev självständigt från Belgien den 1 juli 1962. Landet har cirka 13 miljoner invånare. De officiella språken är kinyarwanda, franska och engelska.",
+      "FlagImage": "https://flagcdn.com/rw.svg"
+    },
+    {
+      "Id": 145,
+      "Name": "Saint Kitts och Nevis",
+      "Continent": "Nordamerika",
+      "Description": "Saint Kitts och Nevis, en ö-nation i Karibien, blev självständigt från Storbritannien den 19 september 1983. Landet har cirka 53 000 invånare. Det officiella språket är engelska.",
+      "FlagImage": "https://flagcdn.com/kn.svg"
+    },
+    {
+      "Id": 146,
+      "Name": "Saint Lucia",
+      "Continent": "Nordamerika",
+      "Description": "Saint Lucia, en ö-nation i Karibien, blev självständigt från Storbritannien den 22 februari 1979. Landet har cirka 180 000 invånare. Det officiella språket är engelska.",
+      "FlagImage": "https://flagcdn.com/lc.svg"
+    },
+    {
+      "Id": 147,
+      "Name": "Saint Vincent och Grenadinerna",
+      "Continent": "Nordamerika",
+      "Description": "Saint Vincent och Grenadinerna, en ö-nation i Karibien, blev självständigt från Storbritannien den 27 oktober 1979. Landet har cirka 110 000 invånare. Det officiella språket är engelska.",
+      "FlagImage": "https://flagcdn.com/vc.svg"
+    },
+    {
+      "Id": 148,
+      "Name": "Samoa",
+      "Continent": "Oceanien",
+      "Description": "Samoa, en ö-nation i Stilla havet, blev självständigt från Nya Zeeland den 1 januari 1962. Landet har cirka 200 000 invånare. De officiella språken är samoanska och engelska.",
+      "FlagImage": "https://flagcdn.com/ws.svg"
+    },
+    {
+      "Id": 149,
+      "Name": "San Marino",
+      "Continent": "Europa",
+      "Description": "San Marino, en liten stad-stat i Sydeuropa, är världens äldsta republik, grundad den 3 september 301. Landet har cirka 34 000 invånare. Det officiella språket är italienska.",
+      "FlagImage": "https://flagcdn.com/sm.svg"
+    },
+    {
+      "Id": 150,
+      "Name": "Sao Tomé och Principe",
+      "Continent": "Afrika",
+      "Description": "Sao Tomé och Principe, en ö-nation i Guineabukten, blev självständigt från Portugal den 12 juli 1975. Landet har cirka 220 000 invånare. Det officiella språket är portugisiska.",
+      "FlagImage": "https://flagcdn.com/st.svg"
+    },
+    {
+      "Id": 151,
+      "Name": "Saudiarabien",
+      "Continent": "Asien",
+      "Description": "Saudiarabien, beläget på Arabiska halvön, grundades som en nation den 23 september 1932. Landet har cirka 34 miljoner invånare. Det officiella språket är arabiska.",
+      "FlagImage": "https://flagcdn.com/sa.svg"
+    },
+    {
+      "Id": 152,
+      "Name": "Senegal",
+      "Continent": "Afrika",
+      "Description": "Senegal, beläget i Västafrika, blev självständigt från Frankrike den 20 augusti 1960. Landet har cirka 17 miljoner invånare. Det officiella språket är franska.",
+      "FlagImage": "https://flagcdn.com/sn.svg"
+    },
+    {
+      "Id": 153,
+      "Name": "Serbien",
+      "Continent": "Europa",
+      "Description": "Serbien, beläget på Balkanhalvön, blev självständigt från Montenegro den 5 juni 2006. Landet har cirka 7 miljoner invånare. Det officiella språket är serbiska.",
+      "FlagImage": "https://flagcdn.com/rs.svg"
+    },
+    {
+      "Id": 154,
+      "Name": "Seychellerna",
+      "Continent": "Afrika",
+      "Description": "Seychellerna, en ö-nation i Indiska oceanen, blev självständigt från Storbritannien den 29 juni 1976. Landet har cirka 98 000 invånare. Det officiella språket är engelska, franska och seychellisk kreol.",
+      "FlagImage": "https://flagcdn.com/sc.svg"
+    },
+    {
+      "Id": 155,
+      "Name": "Sierra Leone",
+      "Continent": "Afrika",
+      "Description": "Sierra Leone, beläget i Västafrika, blev självständigt från Storbritannien den 27 april 1961. Landet har cirka 7,8 miljoner invånare. Det officiella språket är engelska.",
+      "FlagImage": "https://flagcdn.com/sl.svg"
+    },
+    {
+      "Id": 156,
+      "Name": "Singapore",
+      "Continent": "Asien",
+      "Description": "Singapore, en stad-stat i Sydostasien, blev självständigt från Malaysia den 9 augusti 1965. Landet har cirka 5,7 miljoner invånare. Det officiella språket är engelska, malajiska, mandarin och tamil.",
+      "FlagImage": "https://flagcdn.com/sg.svg"
+    },
+    {
+      "Id": 157,
+      "Name": "Slovakien",
+      "Continent": "Europa",
+      "Description": "Slovakien, beläget i Centraleuropa, blev självständigt från Tjeckoslovakien den 1 januari 1993. Landet har cirka 5,4 miljoner invånare. Det officiella språket är slovakiska.",
+      "FlagImage": "https://flagcdn.com/sk.svg"
+    },
+    {
+      "Id": 158,
+      "Name": "Slovenien",
+      "Continent": "Europa",
+      "Description": "Slovenien, beläget på Balkanhalvön, blev självständigt från Jugoslavien den 25 juni 1991. Landet har cirka 2,1 miljoner invånare. Det officiella språket är slovenska.",
+      "FlagImage": "https://flagcdn.com/si.svg"
+    },
+    {
+      "Id": 159,
+      "Name": "Salomonöarna",
+      "Continent": "Oceanien",
+      "Description": "Salomonöarna, en ö-nation i Melanesien, blev självständigt från Storbritannien den 7 juli 1978. Landet har cirka 686 000 invånare. De officiella språken är engelska och pidgin.",
+      "FlagImage": "https://flagcdn.com/sb.svg"
+    },
+    {
+      "Id": 160,
+      "Name": "Somalia",
+      "Continent": "Afrika",
+      "Description": "Somalia, beläget i Afrikas horn, blev självständigt från Storbritannien och Italien den 1 juli 1960. Landet har cirka 15 miljoner invånare. Det officiella språket är somaliska och arabiska.",
+      "FlagImage": "https://flagcdn.com/so.svg"
+    },
+    {
+      "Id": 161,
+      "Name": "Sydafrika",
+      "Continent": "Afrika",
+      "Description": "Sydafrika, beläget i södra Afrika, blev självständigt från Storbritannien den 31 maj 1910. Landet har cirka 59 miljoner invånare. Det officiella språket är engelska, afrikaans och nio inhemska språk.",
+      "FlagImage": "https://flagcdn.com/za.svg"
+    },
+    {
+      "Id": 162,
+      "Name": "Sydsudan",
+      "Continent": "Afrika",
+      "Description": "Sydsudan, världens yngsta nation, blev självständigt från Sudan den 9 juli 2011. Landet har cirka 11 miljoner invånare. Det officiella språket är engelska.",
+      "FlagImage": "https://flagcdn.com/ss.svg"
+    },
+    {
+      "Id": 163,
+      "Name": "Spanien",
+      "Continent": "Europa",
+      "Description": "Spanien, beläget i Sydvästra Europa, blev en enad nation under 1400-talet. Landet har cirka 47 miljoner invånare. Det officiella språket är spanska.",
+      "FlagImage": "https://flagcdn.com/es.svg"
+    },
+    {
+      "Id": 164,
+      "Name": "Sri Lanka",
+      "Continent": "Asien",
+      "Description": "Sri Lanka, en ö-nation i Indiska oceanen, blev självständigt från Storbritannien den 4 februari 1948. Landet har cirka 21 miljoner invånare. Det officiella språket är singalesiska och tamil.",
+      "FlagImage": "https://flagcdn.com/lk.svg"
+    },
+    {
+      "Id": 165,
+      "Name": "Sudan",
+      "Continent": "Afrika",
+      "Description": "Sudan, beläget i Nordafrika, blev självständigt från Storbritannien och Egypten den 1 januari 1956. Landet har cirka 43 miljoner invånare. Det officiella språket är arabiska och engelska.",
+      "FlagImage": "https://flagcdn.com/sd.svg"
+    },
+    {
+      "Id": 166,
+      "Name": "Surinam",
+      "Continent": "Sydamerika",
+      "Description": "Surinam, beläget i norra Sydamerika, blev självständigt från Nederländerna den 25 november 1975. Landet har cirka 590 000 invånare. Det officiella språket är nederländska.",
+      "FlagImage": "https://flagcdn.com/sr.svg"
+    },
+    {
+      "Id": 167,
+      "Name": "Sverige",
+      "Continent": "Europa",
+      "Description": "Sverige, beläget i norra Europa, är en av världens äldsta monarkier. Landet har cirka 10,4 miljoner invånare. Det officiella språket är svenska.",
+      "FlagImage": "https://flagcdn.com/se.svg"
+    },
+    {
+      "Id": 168,
+      "Name": "Schweiz",
+      "Continent": "Europa",
+      "Description": "Schweiz, beläget i Centraleuropa, är känt för sin neutralitet. Landet har cirka 8,5 miljoner invånare. De officiella språken är tyska, franska, italienska och rätoromanska.",
+      "FlagImage": "https://flagcdn.com/ch.svg"
+    },
+    {
+      "Id": 169,
+      "Name": "Syrien",
+      "Continent": "Asien",
+      "Description": "Syrien, beläget i Mellanöstern, blev självständigt från Frankrike den 17 april 1946. Landet har cirka 17 miljoner invånare. Det officiella språket är arabiska.",
+      "FlagImage": "https://flagcdn.com/sy.svg"
+    },
+    {
+      "Id": 170,
+      "Name": "Tadzjikistan",
+      "Continent": "Asien",
+      "Description": "Tadzjikistan, beläget i Centralasien, blev självständigt från Sovjetunionen den 9 september 1991. Landet har cirka 9,5 miljoner invånare. Det officiella språket är tadzjikiska.",
+      "FlagImage": "https://flagcdn.com/tj.svg"
+    },
+    {
+      "Id": 171,
+      "Name": "Tanzania",
+      "Continent": "Afrika",
+      "Description": "Tanzania, beläget i Östafrika, blev självständigt från Storbritannien den 9 december 1961. Landet har cirka 58 miljoner invånare. De officiella språken är swahili och engelska.",
+      "FlagImage": "https://flagcdn.com/tz.svg"
+    },
+    {
+      "Id": 172,
+      "Name": "Thailand",
+      "Continent": "Asien",
+      "Description": "Thailand, beläget i Sydostasien, har aldrig varit koloniserat. Landet har cirka 69 miljoner invånare. Det officiella språket är thailändska.",
+      "FlagImage": "https://flagcdn.com/th.svg"
+    },
+    {
+      "Id": 173,
+      "Name": "Togo",
+      "Continent": "Afrika",
+      "Description": "Togo, beläget i Västafrika, blev självständigt från Frankrike den 27 april 1960. Landet har cirka 8 miljoner invånare. Det officiella språket är franska.",
+      "FlagImage": "https://flagcdn.com/tg.svg"
+    },
+    {
+      "Id": 174,
+      "Name": "Tonga",
+      "Continent": "Oceanien",
+      "Description": "Tonga, en ö-nation i Stilla havet, är det enda monarkiet i Polynesien. Landet har cirka 104 000 invånare. Det officiella språket är tonganska och engelska.",
+      "FlagImage": "https://flagcdn.com/to.svg"
+    },
+    {
+      "Id": 175,
+      "Name": "Trinidad och Tobago",
+      "Continent": "Nordamerika",
+      "Description": "Trinidad och Tobago, en ö-nation i Karibien, blev självständigt från Storbritannien den 31 augusti 1962. Landet har cirka 1,4 miljoner invånare. Det officiella språket är engelska.",
+      "FlagImage": "https://flagcdn.com/tt.svg"
+    },
+    {
+      "Id": 176,
+      "Name": "Tunisien",
+      "Continent": "Afrika",
+      "Description": "Tunisien, beläget i Nordafrika, blev självständigt från Frankrike den 20 mars 1956. Landet har cirka 12 miljoner invånare. Det officiella språket är arabiska.",
+      "FlagImage": "https://flagcdn.com/tn.svg"
+    },
+    {
+      "Id": 177,
+      "Name": "Turkiet",
+      "Continent": "Asien",
+      "Description": "Turkiet, beläget i både Asien och Europa, grundades som en republik den 29 oktober 1923 efter kollapsen av Osmanska riket. Landet har cirka 82 miljoner invånare. Det officiella språket är turkiska.",
+      "FlagImage": "https://flagcdn.com/tr.svg"
+    },
+    {
+      "Id": 178,
+      "Name": "Turkmenistan",
+      "Continent": "Asien",
+      "Description": "Turkmenistan, beläget i Centralasien, blev självständigt från Sovjetunionen den 27 oktober 1991. Landet har cirka 6 miljoner invånare. Det officiella språket är turkmeniska.",
+      "FlagImage": "https://flagcdn.com/tm.svg"
+    },
+    {
+      "Id": 179,
+      "Name": "Tuvalu",
+      "Continent": "Oceanien",
+      "Description": "Tuvalu, en liten ö-nation i Stilla havet, blev självständigt från Storbritannien den 1 oktober 1978. Landet har cirka 11 000 invånare. De officiella språken är tuvaluanska och engelska.",
+      "FlagImage": "https://flagcdn.com/tv.svg"
+    },
+    {
+      "Id": 180,
+      "Name": "Uganda",
+      "Continent": "Afrika",
+      "Description": "Uganda, beläget i Östafrika, blev självständigt från Storbritannien den 9 oktober 1962. Landet har cirka 42 miljoner invånare. Det officiella språket är engelska.",
+      "FlagImage": "https://flagcdn.com/ug.svg"
+    },
+    {
+      "Id": 181,
+      "Name": "Ukraina",
+      "Continent": "Europa",
+      "Description": "Ukraina, beläget i Östeuropa, blev självständigt från Sovjetunionen den 24 augusti 1991. Landet har cirka 41 miljoner invånare. Det officiella språket är ukrainska.",
+      "FlagImage": "https://flagcdn.com/ua.svg"
+    },
+    {
+      "Id": 182,
+      "Name": "Förenade Arabemiraten",
+      "Continent": "Asien",
+      "Description": "Förenade Arabemiraten, beläget på Arabiska halvön, blev självständigt från Storbritannien den 2 december 1971. Landet har cirka 9,9 miljoner invånare. Det officiella språket är arabiska.",
+      "FlagImage": "https://flagcdn.com/ae.svg"
+    },
+    {
+      "Id": 183,
+      "Name": "Storbritannien",
+      "Continent": "Europa",
+      "Description": "Storbritannien, beläget i Västeuropa, är en av världens mest inflytelserika nationer. Landet har cirka 66 miljoner invånare. Det officiella språket är engelska.",
+      "FlagImage": "https://flagcdn.com/gb.svg"
+    },
+    {
+      "Id": 184,
+      "Name": "USA",
+      "Continent": "Nordamerika",
+      "Description": "USA, världens tredje folkrikaste land med cirka 331 miljoner invånare, blev självständigt från Storbritannien den 4 juli 1776. Landet har inget officiellt språk på federal nivå, men engelska är de facto-språk.",
+      "FlagImage": "https://flagcdn.com/us.svg"
+    },
+    {
+      "Id": 185,
+      "Name": "Uruguay",
+      "Continent": "Sydamerika",
+      "Description": "Uruguay, beläget i Sydamerika, blev självständigt från Brasilien den 25 augusti 1825. Landet har cirka 3,5 miljoner invånare. Det officiella språket är spanska.",
+      "FlagImage": "https://flagcdn.com/uy.svg"
+    },
+    {
+      "Id": 186,
+      "Name": "Uzbekistan",
+      "Continent": "Asien",
+      "Description": "Uzbekistan, beläget i Centralasien, blev självständigt från Sovjetunionen den 1 september 1991. Landet har cirka 34 miljoner invånare. Det officiella språket är uzbekiska.",
+      "FlagImage": "https://flagcdn.com/uz.svg"
+    },
+    {
+      "Id": 187,
+      "Name": "Vanuatu",
+      "Continent": "Oceanien",
+      "Description": "Vanuatu, en ö-nation i Melanesien, blev självständigt från Frankrike och Storbritannien den 30 juli 1980. Landet har cirka 300 000 invånare. De officiella språken är bislama, franska och engelska.",
+      "FlagImage": "https://flagcdn.com/vu.svg"
+    },
+    {
+      "Id": 188,
+      "Name": "Venezuela",
+      "Continent": "Sydamerika",
+      "Description": "Venezuela, beläget i norra Sydamerika, blev självständigt från Spanien den 5 juli 1811. Landet har cirka 28 miljoner invånare. Det officiella språket är spanska.",
+      "FlagImage": "https://flagcdn.com/ve.svg"
+    },
+    {
+      "Id": 189,
+      "Name": "Vietnam",
+      "Continent": "Asien",
+      "Description": "Vietnam, beläget i Sydostasien, blev självständigt från Frankrike den 2 september 1945. Landet har cirka 96 miljoner invånare. Det officiella språket är vietnamesiska.",
+      "FlagImage": "https://flagcdn.com/vn.svg"
+    },
+    {
+      "Id": 190,
+      "Name": "Jemen",
+      "Continent": "Asien",
+      "Description": "Jemen, beläget i sydvästra Asien, blev en enad nation den 22 maj 1990 efter sammanslagningen av Nord- och Sydjemen. Landet har cirka 30 miljoner invånare. Det officiella språket är arabiska.",
+      "FlagImage": "https://flagcdn.com/ye.svg"
+    },
+    {
+      "Id": 191,
+      "Name": "Zambia",
+      "Continent": "Afrika",
+      "Description": "Zambia, beläget i södra Afrika, blev självständigt från Storbritannien den 24 oktober 1964. Landet har cirka 17 miljoner invånare. Det officiella språket är engelska.",
+      "FlagImage": "https://flagcdn.com/zm.svg"
+    },
+    {
+      "Id": 192,
+      "Name": "Zimbabwe",
+      "Continent": "Afrika",
+      "Description": "Zimbabwe, beläget i södra Afrika, blev självständigt från Storbritannien den 18 april 1980. Landet har cirka 14,8 miljoner invånare. Det officiella språket är engelska.",
+      "FlagImage": "https://flagcdn.com/zw.svg"
+    }
+  ]
+}
