@@ -61,7 +61,11 @@ function NavBar() {
         <div id="nav-right">
           <>
             {user ? (
-              <Link className="nav-link" to="#" onClick={() => signOut()}>
+              <Link
+                className="nav-link logoutLink"
+                to="#"
+                onClick={() => signOut()}
+              >
                 Logga ut
               </Link>
             ) : (

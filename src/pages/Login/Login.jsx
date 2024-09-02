@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { AuthContext } from "../../contexts/auth.context";
 import { getCookie } from "../../utils/cookieUtils";
+import { useNavigate } from "react-router-dom";
 
 import FormInput from "../../components/FormInput/FormInput.component";
 import FormButton from "../../components/FormButton/FormButton.component";
@@ -13,6 +14,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
   const { setUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -67,6 +69,7 @@ function Login() {
           setUser(userData);
 
           localStorage.setItem("user", JSON.stringify(userData));
+          navigate(`/`);
         })
         .catch((error) => {
           console.error("Error during login:", error);
@@ -87,6 +90,7 @@ function Login() {
           name="username"
           value={username}
           onChange={handleUsernameChange}
+          id="username"
         />
         {errors.username && <p className="error">{errors.username}</p>}
         <FormInput
@@ -95,6 +99,7 @@ function Login() {
           name="password"
           value={password}
           onChange={handlePasswordChange}
+          id="password"
         />
         {errors.password && <p className="error">{errors.password}</p>}
         {errors.apiError && <p className="error">{errors.apiError}</p>}
