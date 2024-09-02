@@ -1,0 +1,45 @@
+.continent-filter-container a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.spec-item {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.flag-img {
+  width: 100px;
+  height: auto;
+}
+
+header {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.see-more-btn {
+  display: block;
+  margin: 40px auto;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: #2980b9;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.see-more-btn:hover {
+  background-color: #e74c3c;
+}
+
+.selected {
+  background-color: #87986a;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+}
