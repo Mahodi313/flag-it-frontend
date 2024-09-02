@@ -71,6 +71,7 @@ function NavBar() {
             ) : (
               <>
                 <Link
+                  id="loginLink"
                   className={
                     location.pathname === "/login"
                       ? "nav-menu-current"
@@ -81,6 +82,7 @@ function NavBar() {
                   Logga in
                 </Link>
                 <Link
+                  id="RegisterLink"
                   className={
                     location.pathname === "/register"
                       ? "nav-menu-current"
