@@ -62,7 +62,7 @@ function NavBar() {
           <>
             {user ? (
               <Link
-                className="nav-link logoutLink"
+                className="nav-link logoutLink nav-menu-size"
                 to="#"
                 onClick={() => signOut()}
               >
