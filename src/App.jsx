@@ -44,7 +44,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/result" element={<Result />} />
           <Route path="/world" element={<World />} />
-          <Route path="/worlditem" element={<WorldItem />} />
+          <Route path="/Worlditem/:id" element={<WorldItem />} />
         </Routes>
       </Router>
       <Footer />

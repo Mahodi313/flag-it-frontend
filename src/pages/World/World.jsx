@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./World.css";
+import { Link } from "react-router-dom";
 
 function World() {
   const [countries, setCountries] = useState([]);
@@ -7,7 +8,7 @@ function World() {
   const [visibleCount, setVisibleCount] = useState(6);
 
   useEffect(() => {
-    fetch("http://localhost:3000/countries")
+    fetch("https://localhost:7007/api/Country")
       .then((res) => res.json())
       .then((data) => setCountries(data));
   }, []);
@@ -24,7 +25,7 @@ function World() {
   const filteredCountries =
     selectedContinent === "Alla"
       ? countries
-      : countries.filter((country) => country.Continent === selectedContinent);
+      : countries.filter((country) => country.continent === selectedContinent);
 
   const visibleCountries = filteredCountries.slice(0, visibleCount);
 
@@ -93,14 +94,18 @@ function World() {
       </div>
       <div className="grid-container">
         {visibleCountries.map((Country) => (
-          <div key={Country.Id} className="spec-item">
-            <h2>{Country.Name}</h2>
+          <Link
+            to={`/Worlditem/${Country.id}`}
+            key={Country.id}
+            className="spec-item"
+          >
+            <h2>{Country.name}</h2>
             <img
-              src={Country.FlagImage}
-              alt={`${Country.Name} flag`}
+              src={Country.flagImage}
+              alt={`${Country.name} flag`}
               className="flag-img"
             />
-          </div>
+          </Link>
         ))}
       </div>
       {visibleCount < filteredCountries.length && (
