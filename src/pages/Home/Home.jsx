@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+// import { AuthContext } from "../Contexts/auth.context";
+import { AuthContext } from "../../Contexts/auth.context";
 
 // Router Link
 import { Link } from "react-router-dom";
@@ -9,13 +11,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faGlasses, faPen } from "@fortawesome/free-solid-svg-icons";
 
 function Home() {
+  const { user, signOut } = useContext(AuthContext);
   return (
     <>
       <div id="landing-container-top">
         <div id="landing-left">
           <h1>FLAGIT</h1>
           <h3>Put a flag on it!</h3>
-          <Link className="landing-btn-container" to="/quizstart">
+          <Link
+            className="landing-btn-container"
+            to={user ? "/quizstart" : "/login"}
+          >
             <button className="primary-btn">Gå till Quiz</button>
           </Link>
         </div>

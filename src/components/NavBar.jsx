@@ -81,7 +81,7 @@ function NavBar() {
                   ? "nav-menu-current"
                   : "nav-menu-size"
               }
-              to="/quizstart"
+              to={user ? "/quizstart" : "/login"}
             >
               Quiz
             </Link>
@@ -156,7 +156,7 @@ function NavBar() {
           </Link>
           <Link
             className="mobile-nav-item"
-            to="/quizstart"
+            to={user ? "/quizstart" : "/login"}
             onClick={() => setMenuOpen(false)}
           >
             Quiz
