@@ -31,23 +31,27 @@ import "./App.css";
 function App() {
   return (
     <>
-      <Router>
-        <NavBar />
-        <Routes>
-          <Route path="/contacts" element={<Contacts />} />
-          <Route path="/history" element={<History />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/leaderboard" element={<Leaderboard />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/quiz" element={<Quiz />} />
-          <Route path="/quizstart" element={<QuizStart />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/result" element={<Result />} />
-          <Route path="/world" element={<World />} />
-          <Route path="/Worlditem/:id" element={<WorldItem />} />
-        </Routes>
-      </Router>
-      <Footer />
+      <div id="app-container">
+        <Router>
+          <NavBar />
+          <div id="content">
+            <Routes>
+              <Route path="/contacts" element={<Contacts />} />
+              <Route path="/history" element={<History />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/leaderboard" element={<Leaderboard />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/quiz" element={<Quiz />} />
+              <Route path="/quizstart" element={<QuizStart />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/result" element={<Result />} />
+              <Route path="/world" element={<World />} />
+              <Route path="/Worlditem/:id" element={<WorldItem />} />
+            </Routes>
+          </div>
+          <Footer />
+        </Router>
+      </div>
     </>
   );
 }

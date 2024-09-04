@@ -7,15 +7,23 @@ function Footer() {
   return (
     <>
       <div id="footer-container">
-        <div>
+        <div id="footer-left-container">
           <h3>Flagit</h3>
-          <h5>Put a flag on it!</h5>
+          <p>Put a flag on it!</p>
         </div>
-        <div>
-          <h1>Hem</h1>
-          <h1>Världens Flaggor</h1>
-          <h1>Quiz</h1>
-          <h1>Leaderboard</h1>
+        <div id="footer-right-container">
+          <Link className="nav-menu-current" to="/">
+            Hem
+          </Link>
+          <Link className="nav-menu-current" to="/world">
+            Världens Flaggor
+          </Link>
+          <Link className="nav-menu-current" to="/quizstart">
+            Quiz
+          </Link>
+          <Link className="nav-menu-current" to="/leaderboard">
+            Leaderboard
+          </Link>
         </div>
       </div>
     </>
