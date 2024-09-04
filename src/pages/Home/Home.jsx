@@ -15,7 +15,7 @@ function Home() {
         <div id="landing-left">
           <h1>FLAGIT</h1>
           <h3>Put a flag on it!</h3>
-          <Link to="/quizstart">
+          <Link className="landing-btn-container" to="/quizstart">
             <button className="primary-btn">Gå till Quiz</button>
           </Link>
         </div>

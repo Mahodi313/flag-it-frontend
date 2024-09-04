@@ -95,7 +95,88 @@
   :root {
     font-size: 12px;
   }
+
+  .landing-box p {
+    width: 70%;
+  }
 }
 
 @media (max-width: 768px) {
+  #landing-container-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #landing-left {
+    width: 100vw;
+  }
+
+  #landing-left h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #landing-left h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .landing-btn-container {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+  }
+
+  #landing-right {
+    width: 55vw;
+  }
+
+  #landing-right p {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* SELLING POINTS */
+  #landing-container-bottom {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 35.25rem;
+    justify-content: space-around;
+  }
+
+  .landing-box {
+    border: 1px solid rgba(24, 35, 16, 0.36);
+    width: 100%;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    padding-left: 4%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .landing-box h2 {
+    margin-bottom: -1rem;
+  }
+
+  .landing-box p {
+    font-family: var(--font-open-sans);
+    white-space: normal;
+    width: 50%;
+    display: block;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  #landing-box-3 {
+    border-right: none;
+    border-bottom: visible;
+  }
 }
