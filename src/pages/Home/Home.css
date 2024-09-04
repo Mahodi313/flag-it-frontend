@@ -4,19 +4,23 @@
 :root {
   --font-montserrat: "Montserrat", sans-serif;
   --font-open-sans: "Open Sans", sans-serif;
+  font-size: 16px;
 }
 
 /* LANDING DISPLAY */
 
+#landing-container-top,
+#landing-container-bottom {
+  width: 100%;
+}
+
 #landing-container-top {
   display: flex;
   width: 100vw;
-  height: 60%;
+  height: 35.25rem;
   justify-content: space-around;
   align-items: center;
   background-color: #cfe1b9;
-  /* background-image: url("https://media.tenor.com/_W3l9GlCz7gAAAAi/world-earth.gif");
-  background-size: cover; */
 }
 
 #landing-left {
@@ -25,13 +29,13 @@
 
 #landing-left h1 {
   font-family: var(--font-montserrat);
-  font-size: 48px;
+  font-size: 3rem;
   font-weight: 550;
 }
 
 #landing-left h3 {
   font-family: var(--font-open-sans);
-  font-size: 40px;
+  font-size: 2.5rem;
   font-weight: 400;
   margin-top: -2rem;
 }
@@ -42,7 +46,7 @@
 
 #landing-right p {
   font-family: var(--font-open-sans);
-  font-size: 24px;
+  font-size: 1.5rem;
   white-space: normal;
   width: 80%;
   display: block;
@@ -53,7 +57,7 @@
 #landing-container-bottom {
   display: flex;
   width: 100vw;
-  height: 26.6%;
+  height: 15.25rem;
   justify-content: space-around;
   background-color: #cfe1b9;
 }
@@ -61,7 +65,7 @@
 .landing-box {
   border: 1px solid rgba(24, 35, 16, 0.36);
   font-family: var(--font-montserrat);
-  font-size: 24px;
+  font-size: 1.5rem;
   width: 33%;
   border-bottom: none;
   border-left: none;
@@ -79,4 +83,100 @@
 
 #landing-box-3 {
   border-right: none;
+}
+
+@media (max-width: 1390px) {
+  :root {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 975px) {
+  :root {
+    font-size: 12px;
+  }
+
+  .landing-box p {
+    width: 70%;
+  }
+}
+
+@media (max-width: 768px) {
+  #landing-container-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #landing-left {
+    width: 100vw;
+  }
+
+  #landing-left h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #landing-left h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .landing-btn-container {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+  }
+
+  #landing-right {
+    width: 55vw;
+  }
+
+  #landing-right p {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* SELLING POINTS */
+  #landing-container-bottom {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 35.25rem;
+    justify-content: space-around;
+  }
+
+  .landing-box {
+    border: 1px solid rgba(24, 35, 16, 0.36);
+    width: 100%;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    padding-left: 4%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .landing-box h2 {
+    margin-bottom: -1rem;
+  }
+
+  .landing-box p {
+    font-family: var(--font-open-sans);
+    white-space: normal;
+    width: 50%;
+    display: block;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  #landing-box-3 {
+    border-right: none;
+    border-bottom: visible;
+  }
 }
