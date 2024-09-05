@@ -11,26 +11,22 @@ export const AuthProvider = ({ children }) => {
   });
 
   useEffect(() => {
-    if (user) return;
+    if (!user) {
+      console.log("User not found in localStorage, fetching user data...");
+      fetch("https://localhost:7007/api/Auth/me", { credentials: "include" })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Fetched user data:", data);
+          const sessionCookie = getCookie(".AspNetCore.Identity.Application");
+          const userData = { ...data, session: sessionCookie };
 
-    fetch("/api/Auth/me", {
-      credentials: "include",
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          throw new Error("Not authenticated");
-        }
-      })
-      .then((data) => {
-        const sessionCookie = getCookie(".AspNetCore.Identity.Application");
-        const userData = { ...data, session: sessionCookie };
-        console.log("Saving user to localStorage:", userData);
-        localStorage.setItem("user", JSON.stringify(userData));
-        setUser(userData);
-      })
-      .catch(() => setUser(null));
+          setUser(userData);
+          localStorage.setItem("user", JSON.stringify(userData));
+        })
+        .catch((error) => {
+          console.error("Error fetching user data:", error);
+        });
+    }
   }, [user]);
 
   const signOut = () => {

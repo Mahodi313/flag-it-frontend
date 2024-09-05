@@ -1,0 +1,71 @@
+.history-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f1f1f1;
+}
+
+.history-container h2 {
+  text-align: center;
+  font-size: 24px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tabs .tab {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  margin: 0 5px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.tabs .tab:hover {
+  background-color: #555;
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #333;
+  color: white;
+  text-align: left;
+}
+
+.history-table th,
+.history-table td {
+  padding: 15px;
+  text-align: center;
+}
+
+.history-table th {
+  background-color: #222;
+  text-transform: uppercase;
+}
+
+.history-table tr {
+  border-bottom: 1px solid #555;
+}
+
+.history-table tr:last-child {
+  border-bottom: none;
+}
+
+.history-table td {
+  border-right: 1px solid #555;
+}
+
+.history-table td:last-child {
+  border-right: none;
+}
+
+.history-table tr:hover {
+  background-color: #444;
+}
