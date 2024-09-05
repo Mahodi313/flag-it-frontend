@@ -77,7 +77,7 @@ function History() {
           </tbody>
         </table>
       ) : (
-        <p className="noHistoryP">No history available.</p>
+        <p className="noHistoryP">Ingen historik tillgänglig.</p>
       )}
     </div>
   );
