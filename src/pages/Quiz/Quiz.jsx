@@ -1,18 +1,25 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-// CSS & Font Awesome
+// CSS & Components
 import "./Quiz.css";
-
-import leaderboardImage from "@images/leaderboard_box.png";
+import HourGlass from "../../components/QuizComponents/HourGlass";
 
 function Quiz() {
-  const [questions, setQuestions] = useState([]);
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0); // Index för nuvarande fråga
+  const [questions, setQuestions] = useState([]); // Alla frågor
+  const [currentQuestion, setCurrentQuestion] = useState(null); // Slumpmässigt vald fråga
+  const [currentCountry, setCurrentCountry] = useState([]);
+  const [usedQuestions, setUsedQuestions] = useState([]); // Använda frågor
   const [time, setTime] = useState(0); // Tid i sekunder
   const [isActive, setIsActive] = useState(true); // Timer status
+  const { difficulty } = useParams(); // Hämta svårighetsnivån från URL-parametern
+  const [warning, setWarning] = useState(""); // För att hantera varningstext
 
   // Starta och uppdatera timern när sidan laddas
   useEffect(() => {
+    localStorage.removeItem("quizResults");
+    console.log("Tidigare quizresultat har rensats från localStorage.");
+
     let timer;
     if (isActive) {
       timer = setInterval(() => {
@@ -23,26 +30,133 @@ function Quiz() {
     return () => clearInterval(timer); // Rensa timern när komponenten avmonteras
   }, [isActive]);
 
-  // Hämta frågorna från API när sidan laddas
+  // Hämta frågorna från API när sidan laddas och kör `handleRenderQuestion`
   useEffect(() => {
-    fetch("https://localhost:7007/api/Question/GetByDifficulty/hard")
+    fetch(`https://localhost:7007/api/Question/GetByDifficulty/${difficulty}`)
       .then((res) => res.json())
       .then((data) => {
-        setQuestions(data);
+        setQuestions(data); // Sätt frågorna i state
+        handleRenderQuestion(data); // Kör en metod som hanterar första frågan
       });
   }, []);
 
-  // Hantera nästa fråga
-  const handleNextQuestion = () => {
-    if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1);
-    } else {
-      setIsActive(false); // Pausa timern när sista frågan är besvarad
-      alert(`Quizet är slut! Du tog ${time} sekunder.`);
+  // Funktion som hanterar den första frågan när sidan renderas
+  const handleRenderQuestion = (data) => {
+    const availableQuestions = data || questions;
+    if (availableQuestions.length === 0) {
+      setWarning("Inga frågor tillgängliga.");
+      return;
     }
+
+    let randomIndex = Math.floor(Math.random() * availableQuestions.length);
+    let newQuestion = availableQuestions[randomIndex];
+
+    setCurrentQuestion(newQuestion);
+    setUsedQuestions([newQuestion.id]);
+
+    fetchCountryById(newQuestion.countryId);
   };
 
-  // Konvertera tid till minuter och sekunder
+  // Funktion för att hantera nästa fråga
+  const handleNextQuestion = () => {
+    const selectedOption = document.querySelector(
+      'input[name="country"]:checked'
+    );
+
+    if (!selectedOption) {
+      if (currentQuestion) {
+        setWarning("Vänligen välj ett svar."); // Uppdatera varningstexten
+      }
+      return;
+    }
+
+    // Rensa varningen när användaren går vidare till nästa fråga
+    setWarning("");
+
+    // Spara den nuvarande frågan och användarens val i localStorage
+    const result = {
+      countryId: currentCountry.id, // Landets ID
+      userAnswer: parseInt(selectedOption.value), // Användarens valda countryId
+      correctAnswer: currentCountry.id, // Det korrekta landets ID
+    };
+
+    let quizResults = JSON.parse(localStorage.getItem("quizResults")) || [];
+    quizResults.push(result);
+    localStorage.setItem("quizResults", JSON.stringify(quizResults));
+    console.log("Result sparat: ", result);
+
+    // Fortsätt till nästa fråga
+    const availableQuestions = questions;
+    if (usedQuestions.length === availableQuestions.length) {
+      setWarning("Alla frågor har besvarats!");
+      return;
+    }
+
+    let randomIndex;
+    let newQuestion;
+
+    do {
+      randomIndex = Math.floor(Math.random() * availableQuestions.length);
+      newQuestion = availableQuestions[randomIndex];
+    } while (usedQuestions.includes(newQuestion.id));
+
+    setCurrentQuestion(newQuestion);
+    setUsedQuestions((prevUsedQuestions) => [
+      ...prevUsedQuestions,
+      newQuestion.id,
+    ]);
+
+    fetchCountryById(newQuestion.countryId);
+  };
+
+  // Funktion för att hämta landets information baserat på CountryId
+  const fetchCountryById = (countryId) => {
+    fetch(`https://localhost:7007/api/Country/GetById/${countryId}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Landets information:", data);
+        setCurrentCountry(data);
+        fetchWrongOptions(data.id, data.name);
+      })
+      .catch((error) => {
+        console.error("Error fetching country information:", error);
+      });
+  };
+
+  // Hämta felaktiga alternativ baserat på countryId och blanda med rätt land
+  const fetchWrongOptions = (excludeCountryId, correctCountryName) => {
+    fetch("https://localhost:7007/api/Country")
+      .then((res) => res.json())
+      .then((countries) => {
+        const wrongOptions = countries
+          .filter((country) => country.id !== excludeCountryId)
+          .sort(() => 0.5 - Math.random())
+          .slice(0, 2);
+
+        const allOptions = shuffleOptions([
+          { id: excludeCountryId, name: correctCountryName },
+          ...wrongOptions.map((country) => ({
+            id: country.id,
+            name: country.name,
+          })),
+        ]);
+
+        setCurrentQuestion((prevQuestion) => ({
+          ...prevQuestion,
+          options: allOptions,
+        }));
+      })
+      .catch((error) => {
+        console.error("Error fetching countries:", error);
+      });
+  };
+
+  // Funktion för att slumpa ordningen på alternativen
+  const shuffleOptions = (options) => {
+    return options.sort(() => 0.5 - Math.random());
+  };
+
+  // Konverterar tid till minuter och sekunder
   const formatTime = (time) => {
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
@@ -55,21 +169,55 @@ function Quiz() {
         <div id="dummy-container-1" />
         <div id="quiz-title-container">
           <h1>Quizet har startat!</h1>
-          <h2>Svårighetsnivå: Svår</h2>
+          <h2>
+            Svårighetsnivå:{" "}
+            {difficulty === "easy"
+              ? "Lätt"
+              : difficulty === "normal"
+              ? "Mellan"
+              : difficulty === "hard"
+              ? "Svår"
+              : "Okänd"}
+          </h2>
         </div>
-        <div id="quiz-timer-container">Tid: {formatTime(time)}</div>
+        <div id="quiz-info-container">
+          <div id="quiz-timer-container">
+            <HourGlass />
+            <p>Tid: {formatTime(time)}</p>
+          </div>
+          {/* Visa varning om den finns */}
+          {warning && <div className="warning">{warning}</div>}
+        </div>
       </div>
-      <div id="quiz-container-bottom">
-        <img src="" alt="Bild på flagga" />
-        <h1>Vilket land tillhör denna flagga?</h1>
-        <ul>
-          <li>Sant</li>
-          <li>falskt</li>
-          <li>falskt</li>
-        </ul>
-        <button className="primary-btn">Nästa</button>
-        <div id="dummy-container-2" />
-      </div>
+      {currentQuestion && ( // Se till att frågan finns innan vi visar den
+        <div id="quiz-container-bottom">
+          <img
+            className="flag-img"
+            src={currentCountry.flagImage}
+            alt="Landets flagga"
+          />
+          <h1>Vilket land tillhör denna flagga?</h1>
+          <form>
+            {currentQuestion.options &&
+              currentQuestion.options.map((option, index) => (
+                <div key={index}>
+                  <input
+                    type="radio"
+                    id={`option-${index}`}
+                    name="country"
+                    value={option.id} // Använd landets id här som value
+                  />
+                  <label htmlFor={`option-${index}`}>{option.name}</label>{" "}
+                  {/* Visa landets namn */}
+                </div>
+              ))}
+          </form>
+          <button className="primary-btn" onClick={handleNextQuestion}>
+            Nästa
+          </button>
+          <div id="dummy-container-2" />
+        </div>
+      )}
     </>
   );
 }
