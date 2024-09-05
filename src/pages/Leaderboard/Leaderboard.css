@@ -9,6 +9,11 @@
     margin: 0;
   }
 
+  .leaderboardTable {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
 .leaderboard-box{
     background-color: #87986A;
     width: auto;
@@ -18,6 +23,12 @@
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
 }
+
+.leaderboardTable th, .leaderboardTable td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
 
 .topDiv{
     display: flex;
@@ -52,6 +63,44 @@
     height: 60px;
 }
 
+@media (max-width: 768px) {
+    .leaderboardTable thead {
+      display: none; 
+    }
+  
+    .leaderboardTable, .leaderboardTable tbody, .leaderboardTable tr, .leaderboardTable td {
+      display: block; 
+      width: auto;
+    }
+
+
+    .difficultyDiv{
+        width: 100%;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+    }
+  
+    .leaderboardTable tr {
+      margin-bottom: 15px; 
+    }
+  
+    .leaderboardTable td {
+      text-align: right; 
+      padding-left: 50%; 
+      position: relative;
+    }
+  
+    .leaderboardTable td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 0;
+      width: 50%;
+      padding-left: 15px;
+      font-weight: bold;
+      text-align: left;
+    }
+  }
+
 /* .triangle{
     background-image: url('@images/Leaderboard_triangle.svg');
     width: 50px;
@@ -59,8 +108,9 @@
 
 .leaderboardTable{
     width: 95%;
-    height: 90%;
+    height: auto;
     background-color: #87986A;
     padding: 20px;
     color: white;
+    margin: 15px;
 }

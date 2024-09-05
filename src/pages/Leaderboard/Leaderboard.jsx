@@ -8,6 +8,7 @@ function Leaderboard() {
   const [leaderboardData, setLeaderboardData] = useState([]);
   const [selectedDifficulty, setSelectedDifficulty] = useState('Hard');
 
+  // Fetch leaderboard data from the API
   useEffect(() => {
     fetch('https://localhost:7007/api/Result')
       .then((response) => response.json())
@@ -15,11 +16,13 @@ function Leaderboard() {
       .catch((error) => console.error('Error fetching leaderboard data:', error));
   }, []);
 
+  // Function to handle the difficulty buttons
   const handleDifficultyClick = (selectedDifficulty) => {
     setSelectedDifficulty(selectedDifficulty);
     console.log(`Selected difficulty: ${selectedDifficulty}`);
   };
 
+  // Filter the leaderboard data based on the selected difficulty
   const filteredData = leaderboardData.filter(entry => entry.difficulty === selectedDifficulty);
 
   return (
@@ -39,10 +42,10 @@ function Leaderboard() {
             <thead>
               <tr>
                 <th>Rank</th>
+                <th>Poäng</th>
+                <th>Tid</th>
                 <th>Användare</th>
                 <th>Datum</th>
-                <th>Tid</th>
-                <th>Poäng</th>
               </tr>
             </thead>
             <tbody>
@@ -59,11 +62,11 @@ function Leaderboard() {
               const formattedDate = date.toLocaleDateString();
               return (
                 <tr key={index}>
-                  <td>{index +1}</td>
-                  <td>{entry.userName}</td>
-                  <td>{formattedDate}</td>
-                  <td>{entry.timeOfCompletion}</td>
-                  <td>{entry.points}</td>
+                  <td data-label="Rank">{index +1}</td>
+                  <td data-label="Poäng">{entry.points}</td>
+                  <td data-label="Tid">{entry.timeOfCompletion}</td>
+                  <td data-label="Användare">{entry.userName}</td>
+                  <td data-label="Datum">{formattedDate}</td>
                 </tr>
               );
             })}
