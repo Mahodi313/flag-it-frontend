@@ -99,13 +99,21 @@ function NavBar() {
           <div id="nav-right">
             <>
               {user ? (
-                <Link
-                  className="nav-link logoutLink nav-menu-size"
-                  to="#"
-                  onClick={() => signOut()}
-                >
-                  Logga ut
-                </Link>
+                <>
+                  <Link
+                    className="nav-link logoutLink nav-menu-size"
+                    to="/history"
+                  >
+                    Min profil
+                  </Link>
+                  <Link
+                    className="nav-link logoutLink nav-menu-size"
+                    to="#"
+                    onClick={() => signOut()}
+                  >
+                    Logga ut
+                  </Link>
+                </>
               ) : (
                 <>
                   <Link
@@ -169,16 +177,25 @@ function NavBar() {
             Leaderboard
           </Link>
           {user ? (
-            <Link
-              className="mobile-nav-item"
-              to="#"
-              onClick={() => {
-                signOut();
-                setMenuOpen(false);
-              }}
-            >
-              Logga ut
-            </Link>
+            <>
+              <Link
+                className="mobile-nav-item"
+                to="/history"
+                onClick={() => setMenuOpen(false)}
+              >
+                Min profil
+              </Link>
+              <Link
+                className="mobile-nav-item"
+                to="#"
+                onClick={() => {
+                  signOut();
+                  setMenuOpen(false);
+                }}
+              >
+                Logga ut
+              </Link>
+            </>
           ) : (
             <>
               <Link
