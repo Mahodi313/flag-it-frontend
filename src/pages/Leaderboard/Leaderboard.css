@@ -41,10 +41,21 @@
     color: white;
 }
 
-.triangle{
+.difficultyDiv button{
+    background-color: #87986A; 
+    border: none; 
+    color: white;
+    font: inherit;
+    cursor: pointer; 
+    padding: 10px 20px; 
+    border-radius: 40px; 
+    height: 60px;
+}
+
+/* .triangle{
     background-image: url('@images/Leaderboard_triangle.svg');
     width: 50px;
-}
+} */
 
 .leaderboardTable{
     width: 95%;
