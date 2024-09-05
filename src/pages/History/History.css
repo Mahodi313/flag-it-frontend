@@ -3,55 +3,68 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f1f1f1;
+  border-radius: 15px;
+  box-sizing: border-box;
 }
 
 .history-container h2 {
-  text-align: center;
+  text-align: left;
   font-size: 24px;
+  padding-left: 10px;
+  color: #333;
 }
 
 .tabs {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: left;
   margin-bottom: 20px;
+  padding-left: 10px;
 }
 
 .tabs .tab {
-  background-color: #333;
+  background-color: #87986a;
   color: white;
   padding: 10px 20px;
-  margin: 0 5px;
-  border-radius: 5px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-radius: 15px;
   border: none;
   cursor: pointer;
 }
 
 .tabs .tab:hover {
-  background-color: #555;
+  background-color: #919b81;
 }
 
 .history-table {
   width: 100%;
   border-collapse: collapse;
-  background-color: #333;
-  color: white;
+  background-color: #cfe1b9;
+  color: black;
   text-align: left;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .history-table th,
 .history-table td {
-  padding: 15px;
-  text-align: center;
+  padding: 10px 20px;
+  text-align: left;
+  font-size: 14px;
 }
 
 .history-table th {
-  background-color: #222;
+  background-color: #87986a;
   text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 13px;
 }
 
 .history-table tr {
-  border-bottom: 1px solid #555;
+  border-bottom: 1px solid #87986a;
+  transition: background-color 0.3s ease;
 }
 
 .history-table tr:last-child {
@@ -59,13 +72,68 @@
 }
 
 .history-table td {
-  border-right: 1px solid #555;
-}
-
-.history-table td:last-child {
-  border-right: none;
+  border: none;
 }
 
 .history-table tr:hover {
-  background-color: #444;
+  background-color: #87986a;
+}
+
+.history-table tr:nth-child(even) {
+  background-color: #d7e0c3;
+}
+
+.history-table tr:nth-child(odd) {
+  background-color: #cfe1b9;
+}
+
+@media (max-width: 768px) {
+  .history-container {
+    padding: 10px;
+  }
+
+  .tabs {
+    flex-direction: column;
+    padding-left: 0;
+  }
+
+  .tabs .tab {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .history-table th,
+  .history-table td {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .noHistoryP {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .history-container h2 {
+    font-size: 20px;
+  }
+
+  .tabs .tab {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .history-table th,
+  .history-table td {
+    font-size: 11px;
+    padding: 6px 8px;
+  }
+
+  .history-table th {
+    font-size: 11px;
+  }
+
+  .noHistoryP {
+    font-size: 18px;
+  }
 }

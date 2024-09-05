@@ -69,7 +69,7 @@ function History() {
             {filteredData.map((entry, index) => (
               <tr key={index}>
                 <td>{entry.points}</td>
-                <td>60 sek</td>
+                <td>{entry.timeOfCompletion}</td>
                 <td>{entry.difficulty}</td>
                 <td>{new Date(entry.dateOfResult).toLocaleString()}</td>
               </tr>
@@ -77,7 +77,7 @@ function History() {
           </tbody>
         </table>
       ) : (
-        <p>No history available.</p>
+        <p className="noHistoryP">No history available.</p>
       )}
     </div>
   );
