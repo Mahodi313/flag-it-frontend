@@ -33,8 +33,8 @@ Then("I should be redirected to homepage", () => {
 // Scenario: Logged in user visits QuizStart page through desktop Navbar
 Given("I am logged in now", () => {
   cy.visit("/login");
-  cy.get("#username").clear().type("UserName");
-  cy.get("#password").clear().type("Test@123");
+  cy.get("#username").clear().type("admin");
+  cy.get("#password").clear().type("Admin@1234");
   cy.get(".formbuttonContainer button").click().wait(400);
 });
 
@@ -49,8 +49,8 @@ Then("I should navigate to {string}", () => {
 // Scenario: Signed out user visits QuizStart page through desktop Navbar
 Given("I am signed out", () => {
   cy.visit("/login");
-  cy.get("#username").clear().type("UserName");
-  cy.get("#password").clear().type("Test@123");
+  cy.get("#username").clear().type("admin");
+  cy.get("#password").clear().type("Admin@1234");
   cy.get(".formbuttonContainer button").click().wait(400);
 
   cy.get("a.logoutLink").click();
@@ -67,8 +67,8 @@ Then("the URL should be {string}", (url) => {
 // Scenario: Logged in user visits QuizStart page through mobile Navbar
 Given("I am logged in", () => {
   cy.visit("/login");
-  cy.get("#username").clear().type("UserName");
-  cy.get("#password").clear().type("Test@123");
+  cy.get("#username").clear().type("admin");
+  cy.get("#password").clear().type("Admin@1234");
   cy.get(".formbuttonContainer button").click().wait(400);
 });
 

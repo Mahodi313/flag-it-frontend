@@ -1,7 +1,7 @@
 Feature: History Page
 
   Background:
-    Given I am logged in as "User12" with password "Test@123"
+    Given I am logged in as "admin" with password "Admin@1234"
 
   Scenario: Viewing history data
     Given I have some history data
