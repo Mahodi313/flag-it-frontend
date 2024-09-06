@@ -47,6 +47,7 @@ function App() {
               <Route path="/result" element={<Result />} />
               <Route path="/world" element={<World />} />
               <Route path="/Worlditem/:id" element={<WorldItem />} />
+              <Route path="/leaderboard" element={Leaderboard} />
             </Routes>
           </div>
           <Footer />

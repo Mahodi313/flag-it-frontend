@@ -65,7 +65,6 @@ Then("I should see only European countries", () => {
     "Ukraina",
     "Storbritannien",
     "Vatikanstaten",
-    // Add any other European countries if needed
   ];
 
   cy.get(".grid-container .spec-item").each(($el) => {
