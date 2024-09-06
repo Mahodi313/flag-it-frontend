@@ -30,7 +30,7 @@ function Leaderboard() {
       <div className="leaderboardCont">
         <div className="topDiv">
           <h1 className="leaderboardH1">Leaderboard</h1>
-          {/* <div className="triangle"></div> */}
+          <h2 className="difficultyH2">{selectedDifficulty}</h2>
           <div className="difficultyDiv">
             <button onClick={() => handleDifficultyClick('Easy')}><h3>Lätt</h3></button>
             <button onClick={() => handleDifficultyClick('Medium')}><h3>Mellan</h3></button>
