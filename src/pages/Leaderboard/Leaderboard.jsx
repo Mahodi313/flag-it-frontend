@@ -4,7 +4,11 @@ import React from "react";
 import "./Leaderboard.css";
 
 function Leaderboard() {
-  return <></>;
+  return (
+    <>
+      <div className="folder"></div>
+    </>
+  );
 }
 
 export default Leaderboard;

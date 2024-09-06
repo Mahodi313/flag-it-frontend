@@ -1,0 +1,21 @@
+.folder {
+  width: 400px;
+  height: 250px;
+  background-color: #7b8461;
+  border-radius: 0 10px 10px 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top tab section */
+.folder::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 0;
+  width: 180px;
+  height: 60px;
+  background-color: #e9f5db;
+  border-radius: 0 0 10px 10px;
+  clip-path: polygon(0% 100%, 100% 100%, 100% 25%, 90% 25%, 90% 0, 0 0);
+}

@@ -41,13 +41,12 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/leaderboard" element={<Leaderboard />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/quiz" element={<Quiz />} />
+              <Route path="/quiz/:difficulty" element={<Quiz />} />
               <Route path="/quizstart" element={<QuizStart />} />
               <Route path="/register" element={<Register />} />
               <Route path="/result" element={<Result />} />
               <Route path="/world" element={<World />} />
-              <Route path="/Worlditem/:id" element={<WorldItem />} />
-              <Route path="/leaderboard" element={Leaderboard} />
+              <Route path="/worlditem/:id" element={<WorldItem />} />
             </Routes>
           </div>
           <Footer />
