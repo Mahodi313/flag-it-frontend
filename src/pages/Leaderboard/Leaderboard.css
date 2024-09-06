@@ -1,21 +1,121 @@
-.folder {
-  width: 400px;
-  height: 250px;
-  background-color: #7b8461;
-  border-radius: 0 10px 10px 10px;
-  position: relative;
-  overflow: hidden;
+.leaderboardCont {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .leaderboardH1 {
+    margin: 0;
+  }
+
+  .leaderboardTable {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+.leaderboard-box{
+    background-color: #87986A;
+    width: auto;
+    height: 400px;
+    margin: 0 60px 60px 60px; 
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
 }
 
-/* Top tab section */
-.folder::before {
-  content: "";
-  position: absolute;
-  top: -30px;
-  left: 0;
-  width: 180px;
-  height: 60px;
-  background-color: #e9f5db;
-  border-radius: 0 0 10px 10px;
-  clip-path: polygon(0% 100%, 100% 100%, 100% 25%, 90% 25%, 90% 0, 0 0);
+.leaderboardTable th, .leaderboardTable td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+
+.topDiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    width: auto;
+    margin: 20px 60px 0 60px;
+    z-index: 1;
+}
+
+.difficultyDiv{
+    background-color: #87986A;
+    height: 100%; 
+    width: 30%;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    color: white;
+}
+
+.difficultyH2{
+  height: 20px;
+}
+
+.difficultyDiv button{
+    background-color: #87986A; 
+    border: none; 
+    color: white;
+    font: inherit;
+    cursor: pointer; 
+    padding: 10px 20px; 
+    border-radius: 40px; 
+    height: 60px;
+    
+}
+
+@media (max-width: 768px) {
+    .leaderboardTable thead {
+      display: none; 
+    }
+  
+    .leaderboardTable, .leaderboardTable tbody, .leaderboardTable tr, .leaderboardTable td {
+      display: block; 
+      width: auto;
+    }
+
+
+    .difficultyDiv{
+        width: 100%;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+    }
+  
+    .leaderboardTable tr {
+      margin-bottom: 15px; 
+    }
+  
+    .leaderboardTable td {
+      text-align: right; 
+      padding-left: 50%; 
+      position: relative;
+    }
+  
+    .leaderboardTable td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 0;
+      width: 50%;
+      padding-left: 15px;
+      font-weight: bold;
+      text-align: left;
+    }
+  }
+
+/* .triangle{
+    background-image: url('@images/Leaderboard_triangle.svg');
+    width: 50px;
+} */
+
+.leaderboardTable{
+    width: 95%;
+    height: auto;
+    background-color: #87986A;
+    padding: 20px;
+    color: white;
+    margin: 15px;
 }

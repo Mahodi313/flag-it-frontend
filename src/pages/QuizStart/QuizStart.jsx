@@ -1,4 +1,4 @@
-import React, { useState , useContext } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Contexts/auth.context";
 import "./QuizStart.css";
@@ -7,11 +7,6 @@ function QuizStart() {
   const [difficulty, setDifficulty] = useState("Lätt");
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
-
-  // const isLoggedIn = () => {
-  //   // Kontrollera om användaren är inloggad genom att kontrollera om authToken finns i localStorage
-  //   return localStorage.getItem("authToken") !== null;
-  // };
 
   const handleDifficultyChange = (event) => {
     setDifficulty(event.target.value);
@@ -26,7 +21,7 @@ function QuizStart() {
     }
   };
 
-  const handleTranslateLevel =(level) => {
+  const handleTranslateLevel = (level) => {
     switch (level) {
       case "Lätt":
         return "easy";
@@ -36,9 +31,8 @@ function QuizStart() {
         return "hard";
       default:
         return "easy";
+    }
   };
-}
-
 
   return (
     <div className="quiz-start">
@@ -48,11 +42,20 @@ function QuizStart() {
         timer, vad man ska tänka på, och ett lycka till.
       </p>
       <ul>
-        <li>Quizet består av flera frågor med olika svårighetsgrader.</li>
-        <li>Du har en begränsad tid att slutföra varje quiz.</li>
-        <li>Försök att svara så snabbt och korrekt som möjligt, då både tid och antal korrekta svar räknas in i ditt slutliga resultat.</li>
-        <li>Varje korrekt svar ger dig ett poäng.</li>
-        <li>I slutet av quizet får du se hur många korrekta svar du fick och även chansen att spara ditt resultat i en Leaderboard där du får se ditt resultat och andra användares resultat.</li>
+        <li>Quizet består av 20 frågor att besvara samt ett val av svårighetsgrader.</li>
+        <li>Du har en obegränsad mängd tid att slutföra varje quiz.</li>
+        <li>
+          Försök att svara så snabbt och korrekt som möjligt, då både tid och
+          antal korrekta svar räknas in i ditt slutliga resultat.
+        </li>
+        <li>Varje korrekta svar ger dig ett poäng.</li>
+        <li>
+          I slutet av quizet får du se hur många korrekta svar du fick och sedan sparas ditt resultat i en Leaderboard där du får se ditt
+          resultat och andra användares resultat.
+        </li>
+        <li>
+          Resultatet sparas även i din profilhistorik så att du kan se ditt resultat.
+        </li>
         <li>Slutligen, lycka till och ha kul!</li>
       </ul>
       <p>Välj svårighetsgrad och tryck på "Start Quiz" för att börja.</p>
@@ -85,7 +88,7 @@ function QuizStart() {
           Svår
         </label>
       </form>
-      <button onClick={handleStartQuiz}>Start Quiz</button>
+      <button className="primary-btn" onClick={handleStartQuiz}>Start Quiz</button>
     </div>
   );
 }
