@@ -32,6 +32,8 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/leaderboard" element={<Leaderboard />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/quiz" element={<Quiz />} />
+              <Route path="/quizstart" element={<QuizStart />} />
               <Route path="/register" element={<Register />} />
               <Route
                 path="/quiz"
@@ -59,7 +61,7 @@ function App() {
               />
               <Route path="/result" element={<Result />} />
               <Route path="/world" element={<World />} />
-              <Route path="/worlditem" element={<WorldItem />} />
+              <Route path="/Worlditem/:id" element={<WorldItem />} />
             </Routes>
           </div>
           <Footer />
