@@ -32,11 +32,9 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/leaderboard" element={<Leaderboard />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/quiz" element={<Quiz />} />
-              <Route path="/quizstart" element={<QuizStart />} />
               <Route path="/register" element={<Register />} />
               <Route
-                path="/quiz"
+                path="/quiz/:difficulty"
                 element={
                   <ProtectedRoute>
                     <Quiz />
@@ -52,7 +50,7 @@ function App() {
                 }
               />
               <Route
-                path="/hisotry"
+                path="/history"
                 element={
                   <ProtectedRoute>
                     <History />
@@ -61,7 +59,7 @@ function App() {
               />
               <Route path="/result" element={<Result />} />
               <Route path="/world" element={<World />} />
-              <Route path="/Worlditem/:id" element={<WorldItem />} />
+              <Route path="/worlditem/:id" element={<WorldItem />} />
             </Routes>
           </div>
           <Footer />
