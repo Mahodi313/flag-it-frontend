@@ -4,16 +4,20 @@ import { useParams } from "react-router-dom";
 // CSS & Components
 import "./Quiz.css";
 import HourGlass from "../../components/QuizComponents/HourGlass";
+import Result from "../Result/Result.jsx";
 
 function Quiz() {
-  const [questions, setQuestions] = useState([]); // Alla frågor
-  const [currentQuestion, setCurrentQuestion] = useState(null); // Slumpmässigt vald fråga
+  const [questions, setQuestions] = useState([]);
+  const [currentQuestion, setCurrentQuestion] = useState(null);
   const [currentCountry, setCurrentCountry] = useState([]);
-  const [usedQuestions, setUsedQuestions] = useState([]); // Använda frågor
-  const [time, setTime] = useState(0); // Tid i sekunder
+  const [usedQuestions, setUsedQuestions] = useState([]);
+  const [time, setTime] = useState(0);
   const [isActive, setIsActive] = useState(true); // Timer status
-  const { difficulty } = useParams(); // Hämta svårighetsnivån från URL-parametern
-  const [warning, setWarning] = useState(""); // För att hantera varningstext
+  const [warning, setWarning] = useState("");
+  const [answeredCount, setAnsweredCount] = useState(0);
+  const [quizFinished, setQuizFinished] = useState(false);
+
+  const { difficulty } = useParams();
 
   // Starta och uppdatera timern när sidan laddas
   useEffect(() => {
@@ -38,7 +42,7 @@ function Quiz() {
         setQuestions(data); // Sätt frågorna i state
         handleRenderQuestion(data); // Kör en metod som hanterar första frågan
       });
-  }, []);
+  }, [difficulty]);
 
   // Funktion som hanterar den första frågan när sidan renderas
   const handleRenderQuestion = (data) => {
@@ -65,7 +69,7 @@ function Quiz() {
 
     if (!selectedOption) {
       if (currentQuestion) {
-        setWarning("Vänligen välj ett svar."); // Uppdatera varningstexten
+        setWarning("Vänligen välj ett svar.");
       }
       return;
     }
@@ -83,7 +87,16 @@ function Quiz() {
     let quizResults = JSON.parse(localStorage.getItem("quizResults")) || [];
     quizResults.push(result);
     localStorage.setItem("quizResults", JSON.stringify(quizResults));
-    console.log("Result sparat: ", result);
+
+    // Öka antalet besvarade frågor
+    setAnsweredCount((prevCount) => prevCount + 1);
+
+    // Kontrollera om 20 frågor har besvarats
+    if (answeredCount + 1 === 20) {
+      // Sätt quizFinished till true för att visa resultatkomponenten
+      setQuizFinished(true);
+      return;
+    }
 
     // Fortsätt till nästa fråga
     const availableQuestions = questions;
@@ -114,7 +127,6 @@ function Quiz() {
     fetch(`https://localhost:7007/api/Country/GetById/${countryId}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log("Landets information:", data);
         setCurrentCountry(data);
         fetchWrongOptions(data.id, data.name);
       })
@@ -163,6 +175,10 @@ function Quiz() {
     return `${minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
   };
 
+  if (quizFinished) {
+    return <Result />;
+  }
+
   return (
     <>
       <div id="quiz-container-top">
@@ -185,11 +201,10 @@ function Quiz() {
             <HourGlass />
             <p>Tid: {formatTime(time)}</p>
           </div>
-          {/* Visa varning om den finns */}
           {warning && <div className="warning">{warning}</div>}
         </div>
       </div>
-      {currentQuestion && ( // Se till att frågan finns innan vi visar den
+      {currentQuestion && (
         <div id="quiz-container-bottom">
           <img
             className="flag-img"
@@ -200,19 +215,23 @@ function Quiz() {
           <form>
             {currentQuestion.options &&
               currentQuestion.options.map((option, index) => (
-                <div key={index}>
+                <div key={index} className="radio-option">
                   <input
                     type="radio"
                     id={`option-${index}`}
+                    className="option"
                     name="country"
-                    value={option.id} // Använd landets id här som value
+                    value={option.id}
                   />
                   <label htmlFor={`option-${index}`}>{option.name}</label>{" "}
-                  {/* Visa landets namn */}
                 </div>
               ))}
           </form>
-          <button className="primary-btn" onClick={handleNextQuestion}>
+          <button
+            id="next-btn"
+            className="primary-btn"
+            onClick={handleNextQuestion}
+          >
             Nästa
           </button>
           <div id="dummy-container-2" />
