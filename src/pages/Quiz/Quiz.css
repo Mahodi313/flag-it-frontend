@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+:root {
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-open-sans: "Open Sans", sans-serif;
+  font-size: 16px;
+}
+
+label {
+  font-family: var(--font-open-sans);
+}
+
+h1,
+img {
+  font-family: var(--font-montserrat);
+}
+
+#dummy-container-1 {
+  width: 25%;
+  margin-left: 2rem;
+}
+
+#dummy-container-2 {
+  height: 17rem;
+}
+
+#quiz-container-top {
+  display: flex;
+  width: 100vw;
+  justify-content: space-between;
+}
+
+#quiz-title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#quiz-title-container h1 {
+  font-size: 2rem;
+  font-family: var(--font-montserrat);
+}
+
+#quiz-title-container h2 {
+  font-size: 1.5rem;
+  font-family: var(--font-open-sans);
+}
+
+#quiz-info-container {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  align-items: center;
+  font-size: 1.4rem;
+  font-family: var(--font-open-sans);
+  margin-right: 2rem;
+}
+
+#quiz-timer-container {
+  display: flex;
+  width: 50%;
+  align-items: center;
+  font-size: 1.4rem;
+  font-family: var(--font-open-sans);
+  margin-right: 2rem;
+}
+
+.warning {
+  color: #d9534f;
+  font-size: 1em;
+  font-weight: bold;
+  margin-top: 1.7rem;
+}
+
+#quiz-container-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flag-img {
+  height: 5rem;
+  width: 1rem;
+  max-width: 20rem;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Stil för radioknapparna */
+input[type="radio"].option {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: #e9f5db;
+  border: 2px solid #97a97c;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+}
+
+input[type="radio"].option:checked {
+  background-color: #97a97c;
+}
+
+/* Stil för etiketten */
+label {
+  font-size: 18px; /* Större textstorlek */
+  color: #333;
+  cursor: pointer;
+}
+
+input[type="radio"].option:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(80, 105, 81, 0.4); /* Fokuseffekt */
+}
+
+#next-btn {
+  margin-top: 2rem;
+}
