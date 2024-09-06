@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Contexts/auth.context";
 
 // CSS & Components
 import "./Quiz.css";
@@ -16,6 +17,8 @@ function Quiz() {
   const [answeredCount, setAnsweredCount] = useState(0);
   const [correctAnswers, setCorrectAnswers] = useState(0); // Totala poäng
   const [startTime, setStartTime] = useState(null); // Starttid för quizet
+  const [loading, setLoading] = useState(true);
+  const { user } = useContext(AuthContext);
 
   const { difficulty } = useParams();
   const navigate = useNavigate();
@@ -28,6 +31,7 @@ function Quiz() {
     localStorage.removeItem("quizResults");
     localStorage.removeItem("finalResults");
     console.log("Starttid satt för quiz:", quizStartTime);
+    console.log("Följande användare är inloggad:", user.userId);
 
     let timer;
     if (isActive) {
@@ -116,9 +120,9 @@ function Quiz() {
 
     // Spara den nuvarande frågan och användarens val i LocalStorage
     const result = {
-      countryId: currentCountry.id, // Landets ID
-      userAnswer: userAnswer, // Användarens valda countryId
-      correctAnswer: correctAnswer, // Det korrekta landets ID
+      countryFlag: currentCountry.flagImage, // Landets flagga
+      userAnswer: userAnswer.name, // Användarens valda countryId
+      correctAnswer: correctAnswer.name, // Det korrekta landets ID
     };
 
     let quizResults = JSON.parse(localStorage.getItem("quizResults")) || [];
@@ -148,13 +152,6 @@ function Quiz() {
       // Spara slutresultatet
       /*
       Följande ska matas in med rätt id:
-        resultModel.Points = result.Points;
-        resultModel.UserId = result.UserId;
-        resultModel.Difficulty = result.Difficulty;
-        resultModel.DateOfResult = result.DateOfResult;
-        resultModel.TimeOfCompletion = result.TimeOfCompletion;
-
-        public int Id { get; set; }
         public int Points { get; set; }
         public string UserId { get; set; }
         public string Difficulty { get; set; } = null!;
@@ -164,7 +161,7 @@ function Quiz() {
        */
       const finalResults = {
         Points: correctAnswers, // Totala poäng (antal rätt svar)
-        UserId: 1,
+        UserId: `${user.userId}`,
         Difficulty: difficulty,
         DateOfResult: formattedStartTime, // Datum när testet började
         TimeOfCompletion: `${totalSeconds} sekunder, ${
