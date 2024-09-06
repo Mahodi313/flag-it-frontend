@@ -33,5 +33,5 @@ Before you can run the project, you'll need to install some packages. If you enc
 
 1. In a new terminal window, start the development server to launch the website:
 - (IMPORTANT: The project must be run on http://localhost:5173/; otherwise, it will not be able to communicate with the backend.)
-- 
+  
 - npm run dev
