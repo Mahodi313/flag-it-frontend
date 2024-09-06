@@ -1,7 +1,7 @@
 Feature: Quiz Start Page
 
   Background:
-    Given I am logged in as "leo123" with password "Leo12345!"
+    Given I am logged in as "admin" with password "Admin@1234"
 
   Scenario: Viewing quiz start page
     Given I am on the quiz start page

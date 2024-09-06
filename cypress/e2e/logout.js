@@ -25,7 +25,7 @@ Then("I should see the logout button in the navigation", () => {
 });
 
 When("I click on the logout button", () => {
-  cy.get("a.logoutLink").click();
+  cy.get("a.logoutLink").contains("Logga ut").click();
 });
 
 Then("I should see login and register button links", () => {
