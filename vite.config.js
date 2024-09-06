@@ -8,6 +8,7 @@ export default defineConfig({
     alias: {
       "@images": resolve(__dirname, "src/images"),
       "@pages": resolve(__dirname, "src/pages"),
+      "@Contexts": resolve(__dirname, "src/Contexts"),
     },
   },
 });
