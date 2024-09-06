@@ -1,27 +1,44 @@
-import React, { useState } from "react";
+import React, { useState , useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Contexts/auth.context";
 import "./QuizStart.css";
 
 function QuizStart() {
   const [difficulty, setDifficulty] = useState("Lätt");
   const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
 
-  const isLoggedIn = () => {
-    // Kontrollera om användaren är inloggad genom att kontrollera om authToken finns i localStorage
-    return localStorage.getItem("authToken") !== null;
-  };
+  // const isLoggedIn = () => {
+  //   // Kontrollera om användaren är inloggad genom att kontrollera om authToken finns i localStorage
+  //   return localStorage.getItem("authToken") !== null;
+  // };
 
   const handleDifficultyChange = (event) => {
     setDifficulty(event.target.value);
   };
 
   const handleStartQuiz = () => {
-    if (!isLoggedIn()) {
+    if (!user) {
       navigate("/login");
     } else {
-      navigate("/quiz", { state: { difficulty } });
+      const difficultyTranslated = handleTranslateLevel(difficulty);
+      navigate(`/quiz/${difficultyTranslated}`);
     }
   };
+
+  const handleTranslateLevel =(level) => {
+    switch (level) {
+      case "Lätt":
+        return "easy";
+      case "Mellan":
+        return "normal";
+      case "Svår":
+        return "hard";
+      default:
+        return "easy";
+  };
+}
+
 
   return (
     <div className="quiz-start">
