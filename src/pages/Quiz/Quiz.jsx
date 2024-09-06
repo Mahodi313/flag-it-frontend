@@ -1,28 +1,33 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 // CSS & Components
 import "./Quiz.css";
 import HourGlass from "../../components/QuizComponents/HourGlass";
-import Result from "../Result/Result.jsx";
 
 function Quiz() {
   const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(null);
   const [currentCountry, setCurrentCountry] = useState([]);
   const [usedQuestions, setUsedQuestions] = useState([]);
-  const [time, setTime] = useState(0);
+  const [time, setTime] = useState(0); // Timer
   const [isActive, setIsActive] = useState(true); // Timer status
   const [warning, setWarning] = useState("");
   const [answeredCount, setAnsweredCount] = useState(0);
-  const [quizFinished, setQuizFinished] = useState(false);
+  const [correctAnswers, setCorrectAnswers] = useState(0); // Totala poäng
+  const [startTime, setStartTime] = useState(null); // Starttid för quizet
 
   const { difficulty } = useParams();
+  const navigate = useNavigate();
 
   // Starta och uppdatera timern när sidan laddas
   useEffect(() => {
+    const quizStartTime = new Date();
+    setStartTime(quizStartTime);
+
     localStorage.removeItem("quizResults");
-    console.log("Tidigare quizresultat har rensats från localStorage.");
+    localStorage.removeItem("finalResults");
+    console.log("Starttid satt för quiz:", quizStartTime);
 
     let timer;
     if (isActive) {
@@ -61,6 +66,30 @@ function Quiz() {
     fetchCountryById(newQuestion.countryId);
   };
 
+  // Funktion för att spara resultatet till databasen
+  const saveResultToDb = (finalResults) => {
+    // Skicka en POST-förfrågan till din API endpoint för att spara resultatet i databasen
+    fetch("https://localhost:7007/api/Result", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(finalResults),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to save result to the database");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Resultat sparat till databasen:", data);
+      })
+      .catch((error) => {
+        console.error("Error saving result to database:", error);
+      });
+  };
+
   // Funktion för att hantera nästa fråga
   const handleNextQuestion = () => {
     const selectedOption = document.querySelector(
@@ -77,11 +106,19 @@ function Quiz() {
     // Rensa varningen när användaren går vidare till nästa fråga
     setWarning("");
 
-    // Spara den nuvarande frågan och användarens val i localStorage
+    // Kontrollera om användarens svar var korrekt
+    const userAnswer = parseInt(selectedOption.value);
+    const correctAnswer = currentCountry.id;
+
+    if (userAnswer === correctAnswer) {
+      setCorrectAnswers((prevCorrect) => prevCorrect + 1); // Öka poängen om svaret var rätt
+    }
+
+    // Spara den nuvarande frågan och användarens val i LocalStorage
     const result = {
       countryId: currentCountry.id, // Landets ID
-      userAnswer: parseInt(selectedOption.value), // Användarens valda countryId
-      correctAnswer: currentCountry.id, // Det korrekta landets ID
+      userAnswer: userAnswer, // Användarens valda countryId
+      correctAnswer: correctAnswer, // Det korrekta landets ID
     };
 
     let quizResults = JSON.parse(localStorage.getItem("quizResults")) || [];
@@ -93,8 +130,56 @@ function Quiz() {
 
     // Kontrollera om 20 frågor har besvarats
     if (answeredCount + 1 === 20) {
-      // Sätt quizFinished till true för att visa resultatkomponenten
-      setQuizFinished(true);
+      // Hämta starttid och beräkna hur lång tid testet tog
+      const quizEndDate = new Date(); // När quizet slutar
+      const totalMilliseconds = quizEndDate - startTime; // Totala tiden i ms
+      const totalSeconds = Math.floor(totalMilliseconds / 1000); // Totala sekunder
+
+      // Formatera starttiden till År-Månad-Datum Tid:minuter:sekunder
+      const formattedStartTime = startTime.toLocaleString("sv-SE", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      });
+
+      // Spara slutresultatet
+      /*
+      Följande ska matas in med rätt id:
+        resultModel.Points = result.Points;
+        resultModel.UserId = result.UserId;
+        resultModel.Difficulty = result.Difficulty;
+        resultModel.DateOfResult = result.DateOfResult;
+        resultModel.TimeOfCompletion = result.TimeOfCompletion;
+
+        public int Id { get; set; }
+        public int Points { get; set; }
+        public string UserId { get; set; }
+        public string Difficulty { get; set; } = null!;
+        public ApplicationUser User { get; set; }
+        public DateTime DateOfResult { get; set; }
+        public TimeSpan TimeOfCompletion { get; set; }
+       */
+      const finalResults = {
+        Points: correctAnswers, // Totala poäng (antal rätt svar)
+        UserId: 1,
+        Difficulty: difficulty,
+        DateOfResult: formattedStartTime, // Datum när testet började
+        TimeOfCompletion: `${totalSeconds} sekunder, ${
+          totalMilliseconds % 1000
+        } ms`, // Totala tiden i sekunder och millisekunder
+      };
+
+      localStorage.setItem("finalResults", JSON.stringify(finalResults));
+      console.log("Testet är klart:", finalResults);
+
+      // Spara resultatet i databasen
+      saveResultToDb(finalResults);
+
+      // Navigera användaren till resultatsidan
+      navigate("/result");
       return;
     }
 
@@ -175,14 +260,12 @@ function Quiz() {
     return `${minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
   };
 
-  if (quizFinished) {
-    return <Result />;
-  }
-
   return (
     <>
       <div id="quiz-container-top">
-        <div id="dummy-container-1" />
+        <div id="quiz-questions-container">
+          <h5>Frågor: {answeredCount + 1} / 20</h5>
+        </div>
         <div id="quiz-title-container">
           <h1>Quizet har startat!</h1>
           <h2>
