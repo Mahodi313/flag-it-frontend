@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { AuthContext } from "@Contexts/auth.context";
+import { AuthContext } from "../../contexts/auth.context";
 import { getCookie } from "../../utils/cookieUtils";
 import { useNavigate } from "react-router-dom";
 
@@ -58,8 +58,12 @@ function Login() {
             } else {
               return response.text();
             }
+          } else if (response.status === 401) {
+            throw new Error("Invalid username or password.");
+          } else if (response.status >= 500) {
+            throw new Error("Server error. Please try again later.");
           } else {
-            throw new Error(`Failed to login: ${response.status}`);
+            throw new Error(`Unexpected error: ${response.status}`);
           }
         })
         .then((data) => {
@@ -72,8 +76,15 @@ function Login() {
           navigate(`/`);
         })
         .catch((error) => {
+          if (error.message === "Failed to fetch") {
+            setErrors({
+              apiError:
+                "Unable to connect to the server. Please check your connection.",
+            });
+          } else {
+            setErrors({ apiError: error.message });
+          }
           console.error("Error during login:", error);
-          setErrors({ apiError: error.message });
         });
     }
   }
