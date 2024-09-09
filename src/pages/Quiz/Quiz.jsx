@@ -17,7 +17,6 @@ function Quiz() {
   const [answeredCount, setAnsweredCount] = useState(0);
   const [correctAnswers, setCorrectAnswers] = useState(0); // Totala poäng
   const [startTime, setStartTime] = useState(null); // Starttid för quizet
-  const [loading, setLoading] = useState(true);
   const { user } = useContext(AuthContext);
 
   const { difficulty } = useParams();
@@ -72,13 +71,33 @@ function Quiz() {
 
   // Funktion för att spara resultatet till databasen
   const saveResultToDb = (finalResults) => {
-    // Skicka en POST-förfrågan till din API endpoint för att spara resultatet i databasen
+    // Omvandla millisekunder till en TimeSpan-liknande struktur
+    const timeSpan = {
+      hours: Math.floor(finalResults.TimeOfCompletion / (1000 * 60 * 60)),
+      minutes: Math.floor((finalResults.TimeOfCompletion / (1000 * 60)) % 60),
+      seconds: Math.floor((finalResults.TimeOfCompletion / 1000) % 60),
+      milliseconds: finalResults.TimeOfCompletion % 1000,
+    };
+
+    // Konstruera TimeSpan i ISO 8601 format
+    const formattedTimeSpan = `PT${timeSpan.hours}H${timeSpan.minutes}M${timeSpan.seconds}.${timeSpan.milliseconds}S`;
+
+    // Förbered data att skicka till API
+    const resultData = {
+      Points: finalResults.Points,
+      UserId: finalResults.UserId,
+      Difficulty: finalResults.Difficulty,
+      DateOfResult: new Date(finalResults.DateOfResult).toISOString(), // ISO-format för DateTime
+      TimeOfCompletion: formattedTimeSpan, // Skicka korrekt formaterad TimeSpan
+    };
+
+    // Skicka POST-förfrågan till backend
     fetch("https://localhost:7007/api/Result", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(finalResults),
+      body: JSON.stringify(resultData), // Skicka objektet som JSON
     })
       .then((response) => {
         if (!response.ok) {
@@ -94,7 +113,6 @@ function Quiz() {
       });
   };
 
-  // Funktion för att hantera nästa fråga
   const handleNextQuestion = () => {
     const selectedOption = document.querySelector(
       'input[name="country"]:checked'
@@ -118,17 +136,6 @@ function Quiz() {
       setCorrectAnswers((prevCorrect) => prevCorrect + 1); // Öka poängen om svaret var rätt
     }
 
-    // Spara den nuvarande frågan och användarens val i LocalStorage
-    const result = {
-      countryFlag: currentCountry.flagImage, // Landets flagga
-      userAnswer: userAnswer.name, // Användarens valda countryId
-      correctAnswer: correctAnswer.name, // Det korrekta landets ID
-    };
-
-    let quizResults = JSON.parse(localStorage.getItem("quizResults")) || [];
-    quizResults.push(result);
-    localStorage.setItem("quizResults", JSON.stringify(quizResults));
-
     // Öka antalet besvarade frågor
     setAnsweredCount((prevCount) => prevCount + 1);
 
@@ -139,38 +146,27 @@ function Quiz() {
       const totalMilliseconds = quizEndDate - startTime; // Totala tiden i ms
       const totalSeconds = Math.floor(totalMilliseconds / 1000); // Totala sekunder
 
-      // Formatera starttiden till År-Månad-Datum Tid:minuter:sekunder
-      const formattedStartTime = startTime.toLocaleString("sv-SE", {
-        year: "numeric",
-        month: "2-digit",
-        day: "2-digit",
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-      });
+      // Formatera starttiden till ISO-format (behåll detta)
+      const formattedStartTime = startTime.toISOString(); // Använd ISO format här
 
-      // Spara slutresultatet
-      /*
-      Följande ska matas in med rätt id:
-        public int Points { get; set; }
-        public string UserId { get; set; }
-        public string Difficulty { get; set; } = null!;
-        public ApplicationUser User { get; set; }
-        public DateTime DateOfResult { get; set; }
-        public TimeSpan TimeOfCompletion { get; set; }
-       */
+      // Skapa objektet för att spara i databasen
+      // const finalResults = {
+      //   Points: correctAnswers, // Totala poäng (antal rätt svar)
+      //   UserId: `${user.userId}`, // UserID som är kopplat till den inloggade användaren
+      //   Difficulty: difficulty, // Svårighetsnivå
+      //   DateOfResult: formattedStartTime, // Datum och tid när testet startade (i ISO format)
+      //   TimeOfCompletion: totalMilliseconds, // Skicka millisekunder direkt
+      // };
+
       const finalResults = {
-        Points: correctAnswers, // Totala poäng (antal rätt svar)
-        UserId: `${user.userId}`,
+        Points: correctAnswers,
+        UserId: user.userId,
         Difficulty: difficulty,
-        DateOfResult: formattedStartTime, // Datum när testet började
-        TimeOfCompletion: `${totalSeconds} sekunder, ${
-          totalMilliseconds % 1000
-        } ms`, // Totala tiden i sekunder och millisekunder
+        DateOfResult: startTime.toISOString(),
+        TimeOfCompletion: totalMilliseconds, // Skicka millisekunder
       };
 
-      localStorage.setItem("finalResults", JSON.stringify(finalResults));
-      console.log("Testet är klart:", finalResults);
+      console.log("Testet är klart och redo att sparas:", finalResults);
 
       // Spara resultatet i databasen
       saveResultToDb(finalResults);
