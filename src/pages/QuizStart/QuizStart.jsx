@@ -37,24 +37,27 @@ function QuizStart() {
   return (
     <div className="quiz-start">
       <h1>Välkommen till Quizet!</h1>
-      <p>
-        Här kommer information om quizet att synas och lite information om en
-        timer, vad man ska tänka på, och ett lycka till.
-      </p>
+      <p>Här kommer information om quizet att synas.</p>
+      <p id="second-p">Det här är vad du behöver tänka på:</p>
       <ul>
-        <li>Quizet består av 20 frågor att besvara samt ett val av svårighetsgrader.</li>
+        <li>
+          Quizet består av 15 frågor att besvara samt ett val av
+          svårighetsgrader.
+        </li>
         <li>Du har en obegränsad mängd tid att slutföra varje quiz.</li>
         <li>
-          Försök att svara så snabbt och korrekt som möjligt, då både tid och
-          antal korrekta svar räknas in i ditt slutliga resultat.
+          Däremot bör du försöka svara så snabbt och korrekt som möjligt, då
+          både tid och antal korrekta svar räknas in i ditt slutliga resultat.
         </li>
         <li>Varje korrekta svar ger dig ett poäng.</li>
         <li>
-          I slutet av quizet får du se hur många korrekta svar du fick och sedan sparas ditt resultat i en Leaderboard där du får se ditt
-          resultat och andra användares resultat.
+          I slutet av quizet får du se hur många korrekta svar du fick och sedan
+          sparas ditt resultat i en Leaderboard där du får se ditt resultat och
+          andra användares resultat.
         </li>
         <li>
-          Resultatet sparas även i din profilhistorik så att du kan se ditt resultat.
+          Resultatet sparas även i din profilhistorik, under Min Profil, så att
+          du kan se ditt resultat.
         </li>
         <li>Slutligen, lycka till och ha kul!</li>
       </ul>
@@ -88,7 +91,9 @@ function QuizStart() {
           Svår
         </label>
       </form>
-      <button className="primary-btn" onClick={handleStartQuiz}>Start Quiz</button>
+      <button className="primary-btn" onClick={handleStartQuiz}>
+        Start Quiz
+      </button>
     </div>
   );
 }
