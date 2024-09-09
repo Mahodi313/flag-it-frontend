@@ -33,7 +33,7 @@ function Leaderboard() {
           <h2 className="difficultyH2">{selectedDifficulty}</h2>
           <div className="difficultyDiv">
             <button onClick={() => handleDifficultyClick('Easy')}><h3>Lätt</h3></button>
-            <button onClick={() => handleDifficultyClick('Medium')}><h3>Mellan</h3></button>
+            <button onClick={() => handleDifficultyClick('Normal')}><h3>Mellan</h3></button>
             <button onClick={() => handleDifficultyClick('Hard')}><h3>Svår</h3></button>
           </div>
         </div>
@@ -65,7 +65,7 @@ function Leaderboard() {
                   <td data-label="Rank">{index +1}</td>
                   <td data-label="Poäng">{entry.points}</td>
                   <td data-label="Tid">{entry.timeOfCompletion}</td>
-                  <td data-label="Användare">{entry.userName}</td>
+                  <td data-label="Användare">{entry.username}</td>
                   <td data-label="Datum">{formattedDate}</td>
                 </tr>
               );
