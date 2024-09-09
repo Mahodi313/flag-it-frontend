@@ -1,22 +1,25 @@
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 // CSS & Font Awesome
 import "./Result.css";
 
 function Result() {
-  const result = [
-    {
-      flag: "Nigeria",
-      userAnswer: "Nigeria",
-      correctAnswer: "Sverige",
-    },
-    {
-      flag: "Nigeria",
-      userAnswer: "Nigeria",
-      correctAnswer: "Sverige",
-    },
-    { flag: "Nigeria", userAnswer: "Nigeria", correctAnswer: "Sverige" },
-  ];
+  const [quizData, setQuizData] = useState({ quizResults: [] });
+
+  useEffect(() => {
+    const storedQuizData = localStorage.getItem("quizData");
+
+    if (storedQuizData) {
+      const quizLocalData = JSON.parse(storedQuizData);
+      setQuizData(quizLocalData);
+    }
+  }, []);
+
+  const quizTimeInSeconds = Math.floor(quizData.quizTime / 1000);
+  const minutes = Math.floor(quizTimeInSeconds / 60);
+  const seconds = quizTimeInSeconds % 60;
+
   return (
     <div className="result-page">
       <h2>Resultat</h2>
@@ -26,33 +29,42 @@ function Result() {
           <thead>
             <tr>
               <th>Flagga</th>
-
               <th>Ditt resultat</th>
               <th>Korrekt svar</th>
             </tr>
           </thead>
           <tbody>
-            {result.map((result, index) => (
+            {quizData.quizResults?.map((result, index) => (
               <tr key={index}>
                 <td>
-                  <div className="flag">{result.flag}</div>
+                  <img
+                    className="flagImg"
+                    src={result.questionFlag}
+                    alt={`Bild på ${result.correctAnswer}`}
+                  />
                 </td>
-                <td>{result.correctAnswer}</td>
                 <td>{result.userAnswer}</td>
+                <td>{result.correctAnswer}</td>
               </tr>
             ))}
           </tbody>
         </table>
+
         <div className="result-details">
-          <p>Datum: 2024-9-05 kl 15:00</p>
+          <p>Datum: {new Date(quizData.quizDate).toLocaleString()}</p>
+
           <p>Rank: #12</p>
-          <p>Poäng: 16/20</p>
-          <p>Tid: 60 Sekunder</p>
+
+          <p>Poäng: {quizData.quizPoints}/15</p>
+          <p>
+            Tid: {minutes} minuter och {seconds} sekunder
+          </p>
+
           <Link to={"/leaderboard"} className="btn">
-            Se Leaderboard
+            Leaderboard
           </Link>
           <Link to={"/quizstart"} className="btn">
-            Gör quiz igen
+            Spela igen
           </Link>
         </div>
       </div>
