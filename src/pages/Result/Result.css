@@ -1,6 +1,7 @@
 .result-page {
   font-family: Arial, Helvetica, sans-serif;
   padding: 30px;
+  box-sizing: border-box;
 }
 
 .result-content {
@@ -8,28 +9,46 @@
   justify-content: space-between;
   margin-top: 20px;
   flex-direction: row;
-  flex-wrap: wrap; /* Makes items wrap for better responsiveness */
+  flex-wrap: wrap; /* Flexibel layout för olika skärmstorlekar */
 }
 
 .result-table {
-  /* Fixed typo from .result-tabel */
-  width: 60%;
+  width: 55%; /* Mindre bred så det passar bättre med andra element */
   border-collapse: collapse;
-  border: 1px solid #ddd; /* Fixed typo in 'solid' */
+  border: 1px solid #ddd;
+  margin-top: 2rem;
+  margin-left: 2rem;
+}
+
+.flag {
+  width: 30%;
+  height: auto;
+  margin-bottom: 5px;
+}
+
+.flagImg {
+  width: 100%; /* Flexibel så den justeras efter föräldrarnas storlek */
+  height: auto;
+  margin-bottom: 5px;
+}
+
+td {
+  width: 60px; /* Mer flexibilitet för cellernas bredd */
 }
 
 .result-table th,
 .result-table td {
   text-align: center;
   border: 1px solid #ddd;
-  padding: 5px;
+  padding: 10px;
 }
 
 .result-details {
-  width: 30%;
+  width: 25%;
+  height: 50%; /* Auto-höjd för bättre responsivitet */
   border: 1px solid #ddd;
   padding: 10px;
-  margin-top: 52px;
+  margin-top: 2rem;
 }
 
 .btn {
@@ -41,30 +60,55 @@
   margin-top: 10px;
   border: none;
   text-decoration: none;
-  width: 30%;
+  width: 50%;
+  box-sizing: border-box;
 }
 
-@media (max-width: 600px) {
+.btn:hover {
+  background-color: darkgray;
+}
+
+@media (max-width: 768px) {
   .result-content {
     flex-direction: column;
-    justify-content: flex-start;
+    width: 100%;
   }
 
   .result-table {
     width: 100%;
   }
-
   .result-details {
     width: 100%;
-    margin-top: 20px;
+  }
+
+  td {
+    width: 50px;
   }
 
   .btn {
-    width: 20%;
+    width: 50%;
   }
 }
 
-/* Optional hover effect for the button */
-.btn:hover {
-  background-color: darkgray; /* Adds a hover effect */
+@media (max-width: 1390px) {
+  .result-content {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .result-table {
+    width: 65%;
+  }
+
+  .result-details {
+    width: 26%;
+  }
+
+  td {
+    width: 60px;
+  }
+
+  .btn {
+    width: 50%;
+  }
 }
