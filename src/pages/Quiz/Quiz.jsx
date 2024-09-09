@@ -18,6 +18,7 @@ function Quiz() {
   const [correctAnswers, setCorrectAnswers] = useState(0); // Totala poäng
   const [startTime, setStartTime] = useState(null); // Starttid för quizet
   const { user } = useContext(AuthContext);
+  const [quizResults, setQuizResults] = useState([]);
 
   const { difficulty } = useParams();
   const navigate = useNavigate();
@@ -27,8 +28,7 @@ function Quiz() {
     const quizStartTime = new Date();
     setStartTime(quizStartTime);
 
-    localStorage.removeItem("quizResults");
-    localStorage.removeItem("finalResults");
+    localStorage.removeItem("quizData");
     console.log("Starttid satt för quiz:", quizStartTime);
     console.log("Följande användare är inloggad:", user.userId);
 
@@ -71,7 +71,6 @@ function Quiz() {
 
   // Funktion för att spara resultatet till databasen
   const saveResultToDb = (finalResults) => {
-    // Omvandla millisekunder till en TimeSpan-liknande struktur
     const timeSpan = {
       hours: Math.floor(finalResults.TimeOfCompletion / (1000 * 60 * 60)),
       minutes: Math.floor((finalResults.TimeOfCompletion / (1000 * 60)) % 60),
@@ -79,25 +78,23 @@ function Quiz() {
       milliseconds: finalResults.TimeOfCompletion % 1000,
     };
 
-    // Konstruera TimeSpan i ISO 8601 format
-    const formattedTimeSpan = `PT${timeSpan.hours}H${timeSpan.minutes}M${timeSpan.seconds}.${timeSpan.milliseconds}S`;
+    // Construct TimeSpan in a simplified format
+    const formattedTimeSpan = `${timeSpan.hours}:${timeSpan.minutes}:${timeSpan.seconds}.${timeSpan.milliseconds}`;
 
-    // Förbered data att skicka till API
     const resultData = {
       Points: finalResults.Points,
       UserId: finalResults.UserId,
       Difficulty: finalResults.Difficulty,
-      DateOfResult: new Date(finalResults.DateOfResult).toISOString(), // ISO-format för DateTime
-      TimeOfCompletion: formattedTimeSpan, // Skicka korrekt formaterad TimeSpan
+      DateOfResult: new Date(finalResults.DateOfResult).toISOString(), // Ensures UTC format
+      TimeOfCompletion: formattedTimeSpan, // TimeSpan remains the same
     };
 
-    // Skicka POST-förfrågan till backend
     fetch("https://localhost:7007/api/Result", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(resultData), // Skicka objektet som JSON
+      body: JSON.stringify(resultData),
     })
       .then((response) => {
         if (!response.ok) {
@@ -129,37 +126,46 @@ function Quiz() {
     setWarning("");
 
     // Kontrollera om användarens svar var korrekt
-    const userAnswer = parseInt(selectedOption.value);
-    const correctAnswer = currentCountry.id;
+    const userAnswer = selectedOption.value;
+    const correctAnswer = currentCountry.name;
 
+    // Create the new quiz result for this question
+    const newResult = {
+      questionFlag: currentCountry.flagImage, // Flag image of the country
+      userAnswer: userAnswer, // The answer the user selected
+      correctAnswer: correctAnswer, // The correct country name
+    };
+
+    // Append the new result to the quizResults array
+    setQuizResults((prevResults) => [...prevResults, newResult]);
+
+    // Increase the score if the answer is correct
     if (userAnswer === correctAnswer) {
-      setCorrectAnswers((prevCorrect) => prevCorrect + 1); // Öka poängen om svaret var rätt
+      setCorrectAnswers((prevCorrect) => prevCorrect + 1);
     }
 
     // Öka antalet besvarade frågor
     setAnsweredCount((prevCount) => prevCount + 1);
 
-    // Kontrollera om 20 frågor har besvarats
-    if (answeredCount + 1 === 20) {
+    // Kontrollera om 15 frågor har besvarats
+    if (answeredCount + 1 === 15) {
+      // Add the last question result manually
+      const newResult = {
+        questionFlag: currentCountry.flagImage, // Flag image of the country
+        userAnswer: userAnswer, // The answer the user selected
+        correctAnswer: correctAnswer, // The correct country name
+      };
+
+      // Manually append the last result to the quizResults array
+      const updatedResults = [...quizResults, newResult];
+
       // Hämta starttid och beräkna hur lång tid testet tog
       const quizEndDate = new Date(); // När quizet slutar
       const totalMilliseconds = quizEndDate - startTime; // Totala tiden i ms
-      const totalSeconds = Math.floor(totalMilliseconds / 1000); // Totala sekunder
-
-      // Formatera starttiden till ISO-format (behåll detta)
-      const formattedStartTime = startTime.toISOString(); // Använd ISO format här
 
       // Skapa objektet för att spara i databasen
-      // const finalResults = {
-      //   Points: correctAnswers, // Totala poäng (antal rätt svar)
-      //   UserId: `${user.userId}`, // UserID som är kopplat till den inloggade användaren
-      //   Difficulty: difficulty, // Svårighetsnivå
-      //   DateOfResult: formattedStartTime, // Datum och tid när testet startade (i ISO format)
-      //   TimeOfCompletion: totalMilliseconds, // Skicka millisekunder direkt
-      // };
-
       const finalResults = {
-        Points: correctAnswers,
+        Points: correctAnswers + (userAnswer === correctAnswer ? 1 : 0), // Add the last point if correct
         UserId: user.userId,
         Difficulty: difficulty,
         DateOfResult: startTime.toISOString(),
@@ -170,6 +176,17 @@ function Quiz() {
 
       // Spara resultatet i databasen
       saveResultToDb(finalResults);
+
+      // Spara quizresultat och alla frågor i localStorage
+      const quizData = {
+        quizResults: updatedResults, // Use the updatedResults with the last question
+        quizDate: finalResults.DateOfResult, // Quiz start date
+        quizPoints: finalResults.Points, // How many correct answers
+        quizTime: finalResults.TimeOfCompletion, // Quiz completion time in milliseconds
+      };
+
+      // Save quizData to localStorage
+      localStorage.setItem("quizData", JSON.stringify(quizData));
 
       // Navigera användaren till resultatsidan
       navigate("/result");
@@ -257,7 +274,7 @@ function Quiz() {
     <>
       <div id="quiz-container-top">
         <div id="quiz-questions-container">
-          <h5>Frågor: {answeredCount + 1} / 20</h5>
+          <h5>Frågor: {answeredCount + 1} / 15</h5>
         </div>
         <div id="quiz-title-container">
           <h1>Quizet har startat!</h1>
@@ -297,9 +314,9 @@ function Quiz() {
                     id={`option-${index}`}
                     className="option"
                     name="country"
-                    value={option.id}
+                    value={option.name}
                   />
-                  <label htmlFor={`option-${index}`}>{option.name}</label>{" "}
+                  <label htmlFor={`option-${index}`}>{option.name}</label>
                 </div>
               ))}
           </form>
