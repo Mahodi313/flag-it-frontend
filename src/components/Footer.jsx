@@ -33,7 +33,6 @@ function Footer() {
           </div>
         </div>
 
-        {/* Hide footer links if on quiz pages */}
         {!isQuizPage && (
           <div id="footer-right-container">
             <Link className="nav-menu-current" to="/">

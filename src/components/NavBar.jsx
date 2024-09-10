@@ -44,7 +44,7 @@ function NavBar() {
 
   return (
     <>
-      {/* Show logo and Flagit on quiz pages */}
+      {/* Visar logo och Flagit på quiz sidan*/}
       {isQuizPage ? (
         <div id="nav-container">
           <div id="nav-left" style={{ display: "flex", alignItems: "center" }}>
