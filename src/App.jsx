@@ -45,7 +45,7 @@ function App() {
                 path="/quizstart"
                 element={
                   <ProtectedRoute>
-                    <QuizStart/>
+                    <QuizStart />
                   </ProtectedRoute>
                 }
               />
@@ -57,7 +57,14 @@ function App() {
                   </ProtectedRoute>
                 }
               />
-              <Route path="/result" element={<Result />} />
+              <Route
+                path="/result"
+                element={
+                  <ProtectedRoute>
+                    <Result />
+                  </ProtectedRoute>
+                }
+              />{" "}
               <Route path="/world" element={<World />} />
               <Route path="/worlditem/:id" element={<WorldItem />} />
             </Routes>
