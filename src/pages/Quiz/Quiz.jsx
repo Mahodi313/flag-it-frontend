@@ -42,7 +42,7 @@ function Quiz() {
 
     localStorage.removeItem("quizData");
     console.log("Starttid satt för quiz:", quizStartTime);
-    console.log("Följande användare är inloggad:", user.userId);
+    console.log("Följande användare är inloggad:", user.username);
 
     let timer;
     if (isActive) {
@@ -99,6 +99,7 @@ function Quiz() {
       Difficulty: finalResults.Difficulty, // TODO: Gör första bokstaven till stor
       DateOfResult: new Date(finalResults.DateOfResult).toISOString(), // Ensures UTC format
       TimeOfCompletion: formattedTimeSpan, // TimeSpan remains the same
+      Username: user.username,
     };
 
     fetch("https://localhost:7007/api/Result", {
