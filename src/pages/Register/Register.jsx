@@ -65,8 +65,6 @@ function Register() {
   };
 
   const handleRegister = () => {
-    console.log("Registration data:", formData);
-
     if (validateForm()) {
       fetch("https://localhost:7007/api/Auth/register", {
         method: "POST",
@@ -104,7 +102,6 @@ function Register() {
           }
         })
         .then((data) => {
-          console.log("Registration successful:", data);
           navigate(`/login`);
         })
         .catch((error) => {

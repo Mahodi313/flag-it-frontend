@@ -16,7 +16,6 @@ export const AuthProvider = ({ children }) => {
       fetch("https://localhost:7007/api/Auth/me", { credentials: "include" })
         .then((response) => response.json())
         .then((data) => {
-          console.log("Fetched user data:", data);
           const sessionCookie = getCookie(".AspNetCore.Identity.Application");
           const userData = { ...data, session: sessionCookie };
 
