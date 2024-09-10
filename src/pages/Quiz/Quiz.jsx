@@ -23,6 +23,18 @@ function Quiz() {
   const { difficulty } = useParams();
   const navigate = useNavigate();
 
+  // Check if the user navigated directly via URL
+  useEffect(() => {
+    const fromQuizStart = localStorage.getItem("fromQuizStart");
+    if (!fromQuizStart) {
+      // If no flag, redirect to quizstart
+      navigate("/quizstart");
+    } else {
+      // If navigated properly, remove the flag
+      localStorage.removeItem("fromQuizStart");
+    }
+  }, [navigate]);
+
   // Starta och uppdatera timern när sidan laddas
   useEffect(() => {
     const quizStartTime = new Date();
@@ -84,7 +96,7 @@ function Quiz() {
     const resultData = {
       Points: finalResults.Points,
       UserId: finalResults.UserId,
-      Difficulty: finalResults.Difficulty,
+      Difficulty: finalResults.Difficulty, // TODO: Gör första bokstaven till stor
       DateOfResult: new Date(finalResults.DateOfResult).toISOString(), // Ensures UTC format
       TimeOfCompletion: formattedTimeSpan, // TimeSpan remains the same
     };
@@ -272,64 +284,67 @@ function Quiz() {
 
   return (
     <>
-      <div id="quiz-container-top">
-        <div id="quiz-questions-container">
-          <h5>Frågor: {answeredCount + 1} / 15</h5>
-        </div>
-        <div id="quiz-title-container">
-          <h1>Quizet har startat!</h1>
-          <h2>
-            Svårighetsnivå:{" "}
-            {difficulty === "easy"
-              ? "Lätt"
-              : difficulty === "normal"
-              ? "Mellan"
-              : difficulty === "hard"
-              ? "Svår"
-              : "Okänd"}
-          </h2>
-        </div>
-        <div id="quiz-info-container">
-          <div id="quiz-timer-container">
-            <HourGlass />
-            <p>Tid: {formatTime(time)}</p>
+      <div id="quiz-container">
+        <div id="quiz-container-top">
+          <div id="quiz-questions-container">
+            <h5>Frågor:</h5>
+            <h5 id="quiz-count">{answeredCount + 1} / 15</h5>
           </div>
-          {warning && <div className="warning">{warning}</div>}
+          <div id="quiz-title-container">
+            <h1>Quizet har startat!</h1>
+            <h2>
+              Svårighetsnivå:{" "}
+              {difficulty === "Easy"
+                ? "Lätt"
+                : difficulty === "Normal"
+                ? "Mellan"
+                : difficulty === "Hard"
+                ? "Svår"
+                : "Okänd"}
+            </h2>
+          </div>
+          <div id="quiz-info-container">
+            <div id="quiz-timer-container">
+              <HourGlass />
+              <p>Tid: {formatTime(time)}</p>
+            </div>
+            {warning && <div className="warning">{warning}</div>}
+          </div>
         </div>
+        {currentQuestion && (
+          <div id="quiz-container-bottom">
+            <img
+              className="flag-img"
+              src={currentCountry.flagImage}
+              alt="Landets flagga"
+            />
+            <h1>Vilket land tillhör denna flagga?</h1>
+            <form>
+              {currentQuestion.options &&
+                currentQuestion.options.map((option, index) => (
+                  <div key={index} className="radio-option">
+                    <input
+                      type="radio"
+                      id={`option-${index}`}
+                      className="option"
+                      name="country"
+                      value={option.name}
+                    />
+                    <label htmlFor={`option-${index}`}>{option.name}</label>
+                  </div>
+                ))}
+            </form>
+            <button
+              id="next-btn"
+              className="primary-btn"
+              onClick={handleNextQuestion}
+            >
+              Nästa
+            </button>
+            {/* <div id="dummy-container-2" /> */}
+          </div>
+        )}
       </div>
-      {currentQuestion && (
-        <div id="quiz-container-bottom">
-          <img
-            className="flag-img"
-            src={currentCountry.flagImage}
-            alt="Landets flagga"
-          />
-          <h1>Vilket land tillhör denna flagga?</h1>
-          <form>
-            {currentQuestion.options &&
-              currentQuestion.options.map((option, index) => (
-                <div key={index} className="radio-option">
-                  <input
-                    type="radio"
-                    id={`option-${index}`}
-                    className="option"
-                    name="country"
-                    value={option.name}
-                  />
-                  <label htmlFor={`option-${index}`}>{option.name}</label>
-                </div>
-              ))}
-          </form>
-          <button
-            id="next-btn"
-            className="primary-btn"
-            onClick={handleNextQuestion}
-          >
-            Nästa
-          </button>
-          <div id="dummy-container-2" />
-        </div>
-      )}
     </>
   );
 }

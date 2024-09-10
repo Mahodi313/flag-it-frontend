@@ -39,47 +39,49 @@ function History() {
   }
 
   return (
-    <div className="history-container">
-      <h2>Historik</h2>
-      <div className="tabs">
-        <button className="tab" onClick={() => handleFilterChange("Easy")}>
-          Lätt
-        </button>
-        <button className="tab" onClick={() => handleFilterChange("Normal")}>
-          Mellan
-        </button>
-        <button className="tab" onClick={() => handleFilterChange("Hard")}>
-          Svår
-        </button>
-        <button className="tab" onClick={() => handleFilterChange("All")}>
-          Visa alla
-        </button>
-      </div>
-      {filteredData.length > 0 ? (
-        <table className="history-table">
-          <thead>
-            <tr>
-              <th>Poäng</th>
-              <th>Tid</th>
-              <th>Svårighetsgrad</th>
-              <th>Datum</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredData.map((entry, index) => (
-              <tr key={index}>
-                <td>{entry.points}</td>
-                <td>{entry.timeOfCompletion}</td>
-                <td>{entry.difficulty}</td>
-                <td>{new Date(entry.dateOfResult).toLocaleString()}</td>
+    <>
+      <div className="history-container">
+        <h2>Historik</h2>
+        <div className="tabs">
+          <button className="tab" onClick={() => handleFilterChange("Easy")}>
+            Lätt
+          </button>
+          <button className="tab" onClick={() => handleFilterChange("Normal")}>
+            Mellan
+          </button>
+          <button className="tab" onClick={() => handleFilterChange("Hard")}>
+            Svår
+          </button>
+          <button className="tab" onClick={() => handleFilterChange("All")}>
+            Visa alla
+          </button>
+        </div>
+        {filteredData.length > 0 ? (
+          <table className="history-table">
+            <thead>
+              <tr>
+                <th>Poäng</th>
+                <th>Tid</th>
+                <th>Svårighetsgrad</th>
+                <th>Datum</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      ) : (
-        <p className="noHistoryP">Ingen historik tillgänglig.</p>
-      )}
-    </div>
+            </thead>
+            <tbody>
+              {filteredData.map((entry, index) => (
+                <tr key={index}>
+                  <td>{entry.points}</td>
+                  <td>{entry.timeOfCompletion}</td>
+                  <td>{entry.difficulty}</td>
+                  <td>{new Date(entry.dateOfResult).toLocaleString()}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <p className="noHistoryP">Ingen historik tillgänglig.</p>
+        )}
+      </div>
+    </>
   );
 }
 

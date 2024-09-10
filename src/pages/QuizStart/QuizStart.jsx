@@ -17,6 +17,7 @@ function QuizStart() {
       navigate("/login");
     } else {
       const difficultyTranslated = handleTranslateLevel(difficulty);
+      localStorage.setItem("fromQuizStart", "true");
       navigate(`/quiz/${difficultyTranslated}`);
     }
   };
@@ -24,13 +25,13 @@ function QuizStart() {
   const handleTranslateLevel = (level) => {
     switch (level) {
       case "Lätt":
-        return "easy";
+        return "Easy";
       case "Mellan":
-        return "normal";
+        return "Normal";
       case "Svår":
-        return "hard";
+        return "Hard";
       default:
-        return "easy";
+        return "Easy";
     }
   };
 

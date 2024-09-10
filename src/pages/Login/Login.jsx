@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { AuthContext } from "../../contexts/auth.context";
+import { AuthContext } from "@Contexts/auth.context";
 import { getCookie } from "../../utils/cookieUtils";
 import { useNavigate } from "react-router-dom";
 

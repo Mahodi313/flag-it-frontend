@@ -27,6 +27,10 @@ img {
   text-align: center;
 }
 
+#quiz-count {
+  margin-left: 1rem;
+}
+
 #dummy-container-2 {
   height: 17rem;
 }
@@ -132,4 +136,28 @@ input[type="radio"].option:focus {
 
 #next-btn {
   margin-top: 2rem;
+  margin-bottom: 5rem;
+}
+
+@media (max-width: 1390px) {
+  #quiz-container {
+    height: 80vh;
+  }
+}
+
+@media (max-width: 975px) {
+  #quiz-container {
+    height: 90vh;
+  }
+}
+
+@media (max-width: 768px) {
+  #quiz-questions-container {
+    flex-direction: column;
+  }
+
+  #quiz-count {
+    margin-left: 1rem;
+    margin-top: -2rem;
+  }
 }
