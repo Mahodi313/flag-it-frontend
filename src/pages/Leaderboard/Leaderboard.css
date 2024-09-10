@@ -17,7 +17,7 @@
 .leaderboard-box{
     background-color: #87986A;
     width: auto;
-    height: 400px;
+    height: auto;
     margin: 0 60px 60px 60px; 
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;

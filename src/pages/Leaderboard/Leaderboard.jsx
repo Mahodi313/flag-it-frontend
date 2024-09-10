@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 
 // CSS & Font Awesome
 import "./Leaderboard.css";
@@ -21,6 +21,11 @@ function Leaderboard() {
     setSelectedDifficulty(selectedDifficulty);
     console.log(`Selected difficulty: ${selectedDifficulty}`);
   };
+
+  function timeToMilliseconds(time) {
+    const [hours, minutes, seconds] = time.split(':').map(Number);
+    return (hours * 3600 + minutes * 60 + seconds) * 1000;
+  }
 
   // Filter the leaderboard data based on the selected difficulty
   const filteredData = leaderboardData.filter(entry => entry.difficulty === selectedDifficulty);
@@ -50,26 +55,31 @@ function Leaderboard() {
             </thead>
             <tbody>
             {filteredData
-              .sort((a, b) => {
-                if (b.points === a.points) {
-                  return a.timeOfCompletion - b.timeOfCompletion; 
-                }
-                return b.points - a.points; 
-              })
-              .slice(0, 10)
-              .map((entry, index) => {
-              const date = new Date(entry.dateOfResult);
-              const formattedDate = date.toLocaleDateString();
-              return (
-                <tr key={index}>
-                  <td data-label="Rank">{index +1}</td>
-                  <td data-label="Poäng">{entry.points}</td>
-                  <td data-label="Tid">{entry.timeOfCompletion}</td>
-                  <td data-label="Användare">{entry.username}</td>
-                  <td data-label="Datum">{formattedDate}</td>
-                </tr>
-              );
-            })}
+                .sort((a, b) => {
+                  if (b.points === a.points) {
+                    // Compare total milliseconds (shortest time first)
+                    return (
+                      timeToMilliseconds(a.timeOfCompletion) -
+                      timeToMilliseconds(b.timeOfCompletion)
+                    );
+                  }
+                  // Sort by points (higher points first)
+                  return b.points - a.points;
+                })
+                .slice(0, 10)
+                .map((entry, index) => {
+                  const date = new Date(entry.dateOfResult);
+                  const formattedDate = date.toLocaleDateString();
+                  return (
+                    <tr key={index}>
+                      <td data-label="Rank">{index + 1}</td>
+                      <td data-label="Poäng">{entry.points}</td>
+                      <td data-label="Tid">{entry.timeOfCompletion}</td>
+                      <td data-label="Användare">{entry.username}</td>
+                      <td data-label="Datum">{formattedDate}</td>
+                    </tr>
+                  );
+                })}
             </tbody>
           </table>
         </div>
@@ -79,3 +89,4 @@ function Leaderboard() {
 }
 
 export default Leaderboard;
+
