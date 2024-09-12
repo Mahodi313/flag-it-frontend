@@ -6,6 +6,6 @@ Feature: Leaderboard page
         When I click on the "Lätt" filter button
         Then I should see only entries with difficulty "Easy"
         When I click on the "Mellan" filter button
-        Then I should see only entries with difficulty "Medium"
+        Then I should see only entries with difficulty "Normal"
         When I click on the "Svår" filter button
         Then I should see only entries with difficulty "Hard"
