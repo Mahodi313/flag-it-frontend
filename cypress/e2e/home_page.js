@@ -53,7 +53,7 @@ Given("I am signed out", () => {
   cy.get("#password").clear().type("Admin@1234");
   cy.get(".formbuttonContainer button").click().wait(400);
 
-  cy.get("a.logoutLink").click();
+  cy.get(`#nav-right > [href="/"]`).click();
 });
 
 When("I press the Quiz option in desktop Navbar", () => {
