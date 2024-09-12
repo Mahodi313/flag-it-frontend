@@ -1,7 +1,7 @@
 Feature: Quiz_Result page
 
-Background:
-    Given I am logged in as "admin" with password "Admin@1234"
+ Background:
+     Given I am logged in as "admin" with password "Admin@1234"
     And I am on the quiz start page
 
 
@@ -34,20 +34,22 @@ Scenario: Redirected to quizstart page as logged in
     When I click on "Spela igen" button
     Then I should redirect to QuizStart page
     When I visit "/result" in the url
-    Then I should see the result page
+    Then I should see result page
     When I visit "/quiz/Easy" in the url
     Then I should redirect to QuizStart page
     When I visit "/result" in the url
     Then I should redirect to QuizStart page
     
 
-Scenario: Redirected to login page as signed out
-
-
-
-    
-
-
+Scenario: Redirected to login page as signed out  
+    Given I am logged in as "admin" with password "Admin@1234"
+    And I am on the quiz start page
+    When I click on the "Logga ut"
+    Then I should be logged out and redirected to the login page
+    When I visit "/result" in the url
+    Then I should be redirected to the login page
+    When I visit "/quiz/Easy" in the url
+    Then I should be redirected to the login page
 
 
     

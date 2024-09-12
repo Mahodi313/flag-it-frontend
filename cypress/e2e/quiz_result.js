@@ -1,7 +1,6 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
-// Backrgound
-
+// Background
 Given(
   "I am logged in as {string} with password {string}",
   (username, password) => {
@@ -13,13 +12,11 @@ Given(
     cy.get("a.logoutLink").should("be.visible").and("contain", "Logga ut");
   }
 );
-
 Given("I am on the quiz start page", () => {
   cy.visit("/quizstart");
 });
 
 // Scenario: Selecting difficulty and starting the quiz as logged in
-
 When("I select {string} difficulty", (difficulty) => {
   cy.log(`Selecting difficulty: ${difficulty}`);
   cy.contains("label", difficulty)
@@ -49,7 +46,6 @@ Then(
 );
 
 // Scenario: Navigate to result page as logged in
-
 Given("I am on the quiz page with difficulty {string}", (difficulty) => {
   cy.visit("/quizstart");
   cy.log(`Selecting difficulty: ${difficulty}`);
@@ -104,4 +100,22 @@ Then("I should redirect to QuizStart page", () => {
 
 When("I visit {string} in the url", (url) => {
   cy.visit(url);
+});
+
+Then("I should see result page", () => {
+  cy.get(".result-page > h2").should("have.text", "Resultat");
+  cy.url().should("include", "/result");
+});
+
+// Scenario: Redirected to login page as signed out
+When("I click on the {string}", (link) => {
+  cy.contains("a", link).click();
+});
+
+Then("I should be logged out and redirected to the login page", () => {
+  cy.url().should("include", "login");
+});
+
+Then("I should be redirected to the login page", () => {
+  cy.url("include", "/login");
 });
