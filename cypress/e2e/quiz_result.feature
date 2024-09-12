@@ -13,28 +13,35 @@ Scenario: Selecting difficulty and starting the quiz as logged in
     Then I should be navigated to the quiz page with difficulty "Lätt"
 
 
-
-
-    Scenario: Doing the quiz
+Scenario: Navigate to result page as logged in 
     Given I am on the quiz page with difficulty "Lätt"
-    When I click on the correct answer 
+    When I answer the first question
     And I click on the button "Nästa"
     Then I should see the next question 
+    When I answer rest of the questions
+    Then I should see the result page
+    And I can see the "quizData" in localstorage
 
-
-
-
-
-    Scenario: Navigate to result page as logged in 
+Scenario: Redirected to quizstart page as logged in
     Given I am on the quiz page with difficulty "Lätt"
-    When I answer all the question
+    When I answer the first question
     And I click on the button "Nästa"
-    Then I should navigate to result page
-    And I can see the quiz data in localstorage
-    And I can see the results
+    Then I should see the next question 
+    When I answer rest of the questions
+    Then I should see the result page
+    And I can see the "quizData" in localstorage
+    
+    When I click on "Spela igen" button
+    Then I should redirect to QuizStart page
+    When I visit "/result" in the url
+    Then I should see the result page
+    When I visit "/quiz/Easy" in the url
+    Then I should redirect to QuizStart page
+    When I visit "/result" in the url
+    Then I should redirect to QuizStart page
+    
 
-
-
+Scenario: Redirected to login page as signed out
 
 
 
