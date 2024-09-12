@@ -1,6 +1,5 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
-// Reusing the login step
 Given(
   "I am logged in as {string} with password {string}",
   (username, password) => {
@@ -13,21 +12,11 @@ Given(
   }
 );
 
-Given("I am not logged in", () => {
-  cy.clearCookies();
-  cy.clearLocalStorage();
-});
-
 Given("I am on the quiz start page", () => {
   cy.visit("/quizstart");
 });
 
-When("I navigate to the quiz start page", () => {
-  cy.visit("/quizstart");
-});
-
 When("I select {string} difficulty", (difficulty) => {
-  // Debugging output
   cy.log(`Selecting difficulty: ${difficulty}`);
   cy.contains("label", difficulty)
     .should("be.visible")
@@ -38,13 +27,6 @@ When("I select {string} difficulty", (difficulty) => {
 
 When("I click on {string}", (buttonText) => {
   cy.contains("button", buttonText).click();
-});
-
-Then("I should see the quiz start information", () => {
-  cy.contains("Välkommen till Quizet!").should("be.visible");
-  cy.contains("Här kommer information om quizet att synas").should(
-    "be.visible"
-  );
 });
 
 Then(
@@ -62,6 +44,13 @@ Then(
   }
 );
 
-Then("I should be redirected to the login page", () => {
-  cy.url().should("include", "/login");
+Given("I am on the quiz page with difficulty {string}", (difficulty) => {
+  cy.visit("/quizstart");
+  cy.log(`Selecting difficulty: ${difficulty}`);
+  cy.contains("label", difficulty)
+    .should("be.visible")
+    .then(($label) => {
+      cy.wrap($label).find("input").check();
+      cy.contains("button", "Start Quiz").click();
+    });
 });
