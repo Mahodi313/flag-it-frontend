@@ -12,11 +12,11 @@ function Quiz() {
   const [currentCountry, setCurrentCountry] = useState([]);
   const [usedQuestions, setUsedQuestions] = useState([]);
   const [time, setTime] = useState(0); // Timer
-  const [isActive, setIsActive] = useState(true); // Timer status
+  const [isActive] = useState(true);
   const [warning, setWarning] = useState("");
   const [answeredCount, setAnsweredCount] = useState(0);
-  const [correctAnswers, setCorrectAnswers] = useState(0); // Totala poäng
-  const [startTime, setStartTime] = useState(null); // Starttid för quizet
+  const [correctAnswers, setCorrectAnswers] = useState(0);
+  const [startTime, setStartTime] = useState(null);
   const { user } = useContext(AuthContext);
   const [quizResults, setQuizResults] = useState([]);
 
@@ -42,7 +42,6 @@ function Quiz() {
 
     localStorage.removeItem("quizData");
     console.log("Starttid satt för quiz:", quizStartTime);
-    console.log("Följande användare är inloggad:", user.username);
 
     let timer;
     if (isActive) {
@@ -56,12 +55,21 @@ function Quiz() {
 
   // Hämta frågorna från API när sidan laddas och kör `handleRenderQuestion`
   useEffect(() => {
-    fetch(`https://localhost:7007/api/Question/GetByDifficulty/${difficulty}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setQuestions(data); // Sätt frågorna i state
-        handleRenderQuestion(data); // Kör en metod som hanterar första frågan
-      });
+    const fetchQuestions = async () => {
+      try {
+        const response = await fetch(
+          `https://localhost:7007/api/Question/GetByDifficulty/${difficulty}`
+        );
+        const data = await response.json();
+        setQuestions(data);
+        handleRenderQuestion(data);
+      } catch (error) {
+        console.error("Error fetching questions:", error);
+        setWarning("Kunde inte hämta frågorna, försök igen senare.");
+      }
+    };
+
+    fetchQuestions();
   }, [difficulty]);
 
   // Funktion som hanterar den första frågan när sidan renderas
@@ -82,193 +90,175 @@ function Quiz() {
   };
 
   // Funktion för att spara resultatet till databasen
-  const saveResultToDb = (finalResults) => {
-    const timeSpan = {
-      hours: Math.floor(finalResults.TimeOfCompletion / (1000 * 60 * 60)),
-      minutes: Math.floor((finalResults.TimeOfCompletion / (1000 * 60)) % 60),
-      seconds: Math.floor((finalResults.TimeOfCompletion / 1000) % 60),
-      milliseconds: finalResults.TimeOfCompletion % 1000,
-    };
+  const saveResultToDb = async (finalResults) => {
+    try {
+      const timeSpan = {
+        hours: Math.floor(finalResults.TimeOfCompletion / (1000 * 60 * 60)),
+        minutes: Math.floor((finalResults.TimeOfCompletion / (1000 * 60)) % 60),
+        seconds: Math.floor((finalResults.TimeOfCompletion / 1000) % 60),
+        milliseconds: finalResults.TimeOfCompletion % 1000,
+      };
 
-    // Construct TimeSpan in a simplified format
-    const formattedTimeSpan = `${timeSpan.hours}:${timeSpan.minutes}:${timeSpan.seconds}.${timeSpan.milliseconds}`;
+      const formattedTimeSpan = `${timeSpan.hours}:${timeSpan.minutes}:${timeSpan.seconds}.${timeSpan.milliseconds}`;
 
-    const resultData = {
-      Points: finalResults.Points,
-      UserId: finalResults.UserId,
-      Difficulty: finalResults.Difficulty, // TODO: Gör första bokstaven till stor
-      DateOfResult: new Date(finalResults.DateOfResult).toISOString(), // Ensures UTC format
-      TimeOfCompletion: formattedTimeSpan, // TimeSpan remains the same
-      Username: user.username,
-    };
+      const resultData = {
+        Points: finalResults.Points,
+        UserId: finalResults.UserId,
+        Difficulty: finalResults.Difficulty,
+        DateOfResult: new Date(finalResults.DateOfResult).toISOString(),
+        TimeOfCompletion: formattedTimeSpan,
+        Username: user.username,
+      };
 
-    fetch("https://localhost:7007/api/Result", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(resultData),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to save result to the database");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log("Resultat sparat till databasen:", data);
-      })
-      .catch((error) => {
-        console.error("Error saving result to database:", error);
+      const response = await fetch("https://localhost:7007/api/Result", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(resultData),
       });
+
+      if (!response.ok) {
+        throw new Error("Failed to save result to the database");
+      }
+    } catch (error) {
+      console.error("Error saving result to database:", error);
+      setWarning("Kunde inte spara resultatet, försök igen senare.");
+    }
   };
 
   const handleNextQuestion = () => {
-    const selectedOption = document.querySelector(
-      'input[name="country"]:checked'
-    );
+    try {
+      const selectedOption = document.querySelector(
+        'input[name="country"]:checked'
+      );
 
-    if (!selectedOption) {
-      if (currentQuestion) {
-        setWarning("Vänligen välj ett svar.");
+      if (!selectedOption) {
+        if (currentQuestion) {
+          setWarning("Vänligen välj ett svar.");
+        }
+        return;
       }
-      return;
-    }
 
-    // Rensa varningen när användaren går vidare till nästa fråga
-    setWarning("");
+      setWarning("");
+      const userAnswer = selectedOption.value;
+      const correctAnswer = currentCountry.name;
 
-    // Kontrollera om användarens svar var korrekt
-    const userAnswer = selectedOption.value;
-    const correctAnswer = currentCountry.name;
-
-    // Create the new quiz result for this question
-    const newResult = {
-      questionFlag: currentCountry.flagImage, // Flag image of the country
-      userAnswer: userAnswer, // The answer the user selected
-      correctAnswer: correctAnswer, // The correct country name
-    };
-
-    // Append the new result to the quizResults array
-    setQuizResults((prevResults) => [...prevResults, newResult]);
-
-    // Increase the score if the answer is correct
-    if (userAnswer === correctAnswer) {
-      setCorrectAnswers((prevCorrect) => prevCorrect + 1);
-    }
-
-    // Öka antalet besvarade frågor
-    setAnsweredCount((prevCount) => prevCount + 1);
-
-    // Kontrollera om 15 frågor har besvarats
-    if (answeredCount + 1 === 15) {
-      // Add the last question result manually
       const newResult = {
-        questionFlag: currentCountry.flagImage, // Flag image of the country
-        userAnswer: userAnswer, // The answer the user selected
-        correctAnswer: correctAnswer, // The correct country name
+        questionFlag: currentCountry.flagImage,
+        userAnswer: userAnswer,
+        correctAnswer: correctAnswer,
       };
 
-      // Manually append the last result to the quizResults array
-      const updatedResults = [...quizResults, newResult];
+      setQuizResults((prevResults) => [...prevResults, newResult]);
 
-      // Hämta starttid och beräkna hur lång tid testet tog
-      const quizEndDate = new Date(); // När quizet slutar
-      const totalMilliseconds = quizEndDate - startTime; // Totala tiden i ms
+      if (userAnswer === correctAnswer) {
+        setCorrectAnswers((prevCorrect) => prevCorrect + 1);
+      }
 
-      // Skapa objektet för att spara i databasen
-      const finalResults = {
-        Points: correctAnswers + (userAnswer === correctAnswer ? 1 : 0), // Add the last point if correct
-        UserId: user.userId,
-        Difficulty: difficulty,
-        DateOfResult: startTime.toISOString(),
-        TimeOfCompletion: totalMilliseconds, // Skicka millisekunder
-      };
+      setAnsweredCount((prevCount) => prevCount + 1);
 
-      console.log("Testet är klart och redo att sparas:", finalResults);
+      if (answeredCount + 1 === 15) {
+        const newResult = {
+          questionFlag: currentCountry.flagImage,
+          userAnswer: userAnswer,
+          correctAnswer: correctAnswer,
+        };
 
-      // Spara resultatet i databasen
-      saveResultToDb(finalResults);
+        const updatedResults = [...quizResults, newResult];
+        const quizEndDate = new Date();
+        const totalMilliseconds = quizEndDate - startTime;
 
-      // Spara quizresultat och alla frågor i localStorage
-      const quizData = {
-        quizResults: updatedResults, // Use the updatedResults with the last question
-        quizDate: finalResults.DateOfResult, // Quiz start date
-        quizPoints: finalResults.Points, // How many correct answers
-        quizTime: finalResults.TimeOfCompletion, // Quiz completion time in milliseconds
-      };
+        const finalResults = {
+          Points: correctAnswers + (userAnswer === correctAnswer ? 1 : 0),
+          UserId: user.userId,
+          Difficulty: difficulty,
+          DateOfResult: startTime.toISOString(),
+          TimeOfCompletion: totalMilliseconds,
+        };
 
-      // Save quizData to localStorage
-      localStorage.setItem("quizData", JSON.stringify(quizData));
+        saveResultToDb(finalResults);
 
-      // Navigera användaren till resultatsidan
-      navigate("/result");
-      return;
+        const quizData = {
+          quizResults: updatedResults,
+          quizDate: finalResults.DateOfResult,
+          quizPoints: finalResults.Points,
+          quizTime: finalResults.TimeOfCompletion,
+        };
+
+        localStorage.setItem("quizData", JSON.stringify(quizData));
+        navigate("/result");
+        return;
+      }
+
+      const availableQuestions = questions;
+      if (usedQuestions.length === availableQuestions.length) {
+        setWarning("Alla frågor har besvarats!");
+        return;
+      }
+
+      let randomIndex;
+      let newQuestion;
+
+      do {
+        randomIndex = Math.floor(Math.random() * availableQuestions.length);
+        newQuestion = availableQuestions[randomIndex];
+      } while (usedQuestions.includes(newQuestion.id));
+
+      setCurrentQuestion(newQuestion);
+      setUsedQuestions((prevUsedQuestions) => [
+        ...prevUsedQuestions,
+        newQuestion.id,
+      ]);
+
+      fetchCountryById(newQuestion.countryId);
+    } catch (error) {
+      console.error("Error handling the next question:", error);
+      setWarning("Ett fel uppstod, försök igen.");
     }
-
-    // Fortsätt till nästa fråga
-    const availableQuestions = questions;
-    if (usedQuestions.length === availableQuestions.length) {
-      setWarning("Alla frågor har besvarats!");
-      return;
-    }
-
-    let randomIndex;
-    let newQuestion;
-
-    do {
-      randomIndex = Math.floor(Math.random() * availableQuestions.length);
-      newQuestion = availableQuestions[randomIndex];
-    } while (usedQuestions.includes(newQuestion.id));
-
-    setCurrentQuestion(newQuestion);
-    setUsedQuestions((prevUsedQuestions) => [
-      ...prevUsedQuestions,
-      newQuestion.id,
-    ]);
-
-    fetchCountryById(newQuestion.countryId);
   };
 
   // Funktion för att hämta landets information baserat på CountryId
-  const fetchCountryById = (countryId) => {
-    fetch(`https://localhost:7007/api/Country/GetById/${countryId}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setCurrentCountry(data);
-        fetchWrongOptions(data.id, data.name);
-      })
-      .catch((error) => {
-        console.error("Error fetching country information:", error);
-      });
+  const fetchCountryById = async (countryId) => {
+    try {
+      const response = await fetch(
+        `https://localhost:7007/api/Country/GetById/${countryId}`
+      );
+      const data = await response.json();
+      setCurrentCountry(data);
+      fetchWrongOptions(data.id, data.name);
+    } catch (error) {
+      console.error("Error fetching country information:", error);
+      setWarning("Kunde inte hämta landets information, försök igen senare.");
+    }
   };
 
   // Hämta felaktiga alternativ baserat på countryId och blanda med rätt land
-  const fetchWrongOptions = (excludeCountryId, correctCountryName) => {
-    fetch("https://localhost:7007/api/Country")
-      .then((res) => res.json())
-      .then((countries) => {
-        const wrongOptions = countries
-          .filter((country) => country.id !== excludeCountryId)
-          .sort(() => 0.5 - Math.random())
-          .slice(0, 2);
+  const fetchWrongOptions = async (excludeCountryId, correctCountryName) => {
+    try {
+      const response = await fetch("https://localhost:7007/api/Country");
+      const countries = await response.json();
+      const wrongOptions = countries
+        .filter((country) => country.id !== excludeCountryId)
+        .sort(() => 0.5 - Math.random())
+        .slice(0, 2);
 
-        const allOptions = shuffleOptions([
-          { id: excludeCountryId, name: correctCountryName },
-          ...wrongOptions.map((country) => ({
-            id: country.id,
-            name: country.name,
-          })),
-        ]);
+      const allOptions = shuffleOptions([
+        { id: excludeCountryId, name: correctCountryName },
+        ...wrongOptions.map((country) => ({
+          id: country.id,
+          name: country.name,
+        })),
+      ]);
 
-        setCurrentQuestion((prevQuestion) => ({
-          ...prevQuestion,
-          options: allOptions,
-        }));
-      })
-      .catch((error) => {
-        console.error("Error fetching countries:", error);
-      });
+      setCurrentQuestion((prevQuestion) => ({
+        ...prevQuestion,
+        options: allOptions,
+      }));
+    } catch (error) {
+      console.error("Error fetching countries:", error);
+      setWarning("Kunde inte hämta alternativa länder, försök igen senare.");
+    }
   };
 
   // Funktion för att slumpa ordningen på alternativen
@@ -342,7 +332,6 @@ function Quiz() {
             >
               Nästa
             </button>
-            {/* <div id="dummy-container-2" /> */}
           </div>
         )}
       </div>
